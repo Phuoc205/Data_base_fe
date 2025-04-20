@@ -1,25 +1,27 @@
 import React from 'react';
 import './header.css'
+import '../Button/button.js'
+import Button from '../Button/button.js';
 
 function Header() {
     return (
         <div className="header">
-            <div className="header_top">
-                <div>
-                    <i className="fa-solid fa-location-dot"></i>
-                    Đông Hòa, Dĩ An, Bình Dương
+            <div className="header-top">
+                <div className="header-top-left-container">
+                    <div className="header-top-left-item"><i className="fa-solid fa-location-dot"></i></div>
+                    <div className="header-top-left-item">Đông Hòa, Dĩ An, Bình Dương</div>
                 </div>
-                <div>
-                    <div>Fanpage</div>
-                    <div>Yêu thích</div>
+                <div className="header-top-right-container">
+                    <div className="header-top-right-item">Fanpage</div>
+                    <div className="header-top-right-item">Yêu thích</div>
                 </div>
             </div>
 
-            <div className="header_middle">
-                <div className="header_middle_logo">
-                    <img src="./img/logo_shop.png" alt="" className="logo_shop" />
+            <div className="header-middle">
+                <div className="header-middle-left-side">
+                    <img src="public/img/logo_shop.png" alt="" className="logo-shop" />
                 </div>
-                <div className="header_middle_right_side">
+                <div className="header-middle-right-side">
                     <div className="header_middle_search">
                         <input type="text" className="header_middle_search_input" placeholder="Tìm sản phẩm" />
                         <div className="header_middle_search_button">
@@ -43,7 +45,7 @@ function Header() {
                             </div>
                             <div className="header_middle_other_right_side">
                                 <div className="header_middle_other_right_side_item">Tốc độ nhanh chóng<br /></div>
-                                <div className="header_middle_other_right_side_item"><span className="hightlight_word"><i className="fa-solid fa-meteor"></i> Giao hàng trong 2h</span></div>
+                                <div className="header_middle_other_right_side_item"><span className="hightlight_word"><i className="fa-solid fa-meteor"></i> Giao hàng 2h</span></div>
                             </div>
                         </div>
                     </div>
@@ -65,9 +67,27 @@ function Header() {
                 </div>
 
                 <div className="header_bottom_side">
-                    <div className="header_bottom_button_item hotline"><i className="fa-solid fa-phone"></i>19001665</div>
-                    <div className="header_bottom_button_item cart"><i className="fa-solid fa-cart-shopping"></i>Giỏ hàng</div>
-                    <a href="login.html" className="header_bottom_button_item account"><i className="fa-solid fa-user"></i> Tài khoản</a>
+                    {/* <button className="header_bottom_button_item hotline"><i className="fa-solid fa-phone"></i>19001665</button>
+                    <button className="header_bottom_button_item cart"><i className="fa-solid fa-cart-shopping"></i>Giỏ hàng</button>
+                    <button className="header_bottom_button_item account"><i className="fa-solid fa-user"></i> Tài khoản</button> */}
+                    <Button
+                        className="header-bottom-button-right hotline" 
+                        icon={<i className="fa-solid fa-phone"></i>}
+                        content="19001665"
+                        link={'/phone'}
+                    />
+                    <Button
+                        className="header-bottom-button-right" 
+                        icon={<i className="fa-solid fa-cart-shopping"></i>}
+                        content="Giỏ hàng"
+                        link={'/cart'}
+                    />
+                    <Button
+                        className="header-bottom-button-right" 
+                        icon={<i className="fa-solid fa-user"></i>}
+                        content="Tài khoản"
+                        link={'/login'}
+                    />
                 </div>
             </div>
         </div>
