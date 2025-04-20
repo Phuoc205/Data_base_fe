@@ -1,13 +1,14 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/App.js",
   output: {
     path: path.join(__dirname, "/build"),
     filename: "bundle.js"
   },
   devServer: {
     historyApiFallback: true,
+    // các cấu hình khác nếu có
   },
   module: {
     rules: [
