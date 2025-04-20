@@ -1,6 +1,5 @@
 import React from 'react';
 // import '../Button/button'
-import Header from '../components/Header/header.js';
 import './css/login.css'
 
 function Login() {
@@ -12,22 +11,25 @@ function Login() {
                 </div>
                 <div className='login_content'>
                     <div className='login_content_item'>
-                        <div className='login_content_item_name'><h3>Email:</h3></div>
-                        <div><input className='login_content_item_input'></input></div>
+                        <div className='login_content_item_name'>Email:</div>
+                        <div className='login_content_item_input'><input className='login_content_item_input_input'></input><i class="fa-solid fa-envelope login_content_item_input_icon"></i></div>
                     </div>
                     <div className='login_content_item'>
-                        <div className='login_content_item_name'><h3>Password:</h3></div>
-                        <div><input  className='login_content_item_input'></input></div>
+                        <div className='login_content_item_name'>Password:</div>
+                        <div className='login_content_item_input'><input className='login_content_item_input_input'></input><i class="fa-solid fa-key login_content_item_input_icon"></i></div>
                     </div>
                 </div>
-                <div className='login_Submit'>
-                    Submit
-                </div>
-                    OR
-                <div className='Icon'>icon</div>
 
-                <div>Not account yet?<a> Sign up</a> </div>
-                <div><a>Forgot the password</a></div>
+                <div className='login_forgot_password'>
+                    <div>Remember</div>
+                    <div>Forgot password</div>
+                </div>
+
+                <div className='login_Submit'>
+                    Log in
+                </div>
+
+                <div>Don't have an account ? <a> Register here</a> </div>
             </div>
         </div>
     );

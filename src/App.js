@@ -1,14 +1,17 @@
 import React from 'react' // nạp thư viện react
-import './App.css'
-import Header from './components/Header/header.js'
+import { createRoot } from 'react-dom/client' // cú pháp mới cho React 18+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Login from './routes/login.js'
+import Homepage from './routes/homepage.js'
 
-// Tạo component App
-function App () {
-    return (
-        <div className='App'>
-            <Header />
-        </div>
-    )
-}
+const container = document.getElementById('root')
+const root = createRoot(container)
 
-export default App
+root.render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/index.html" element={<Homepage />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
+  </BrowserRouter>
+)
