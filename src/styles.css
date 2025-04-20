@@ -15,8 +15,8 @@ body {
     color: #333;
 }
 
-header {
-    /* padding: 0px 200px; */
+head {
+    margin: 0;
 }
 
 main {

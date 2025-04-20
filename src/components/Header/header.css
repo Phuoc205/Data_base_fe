@@ -1,35 +1,69 @@
-.header_top {
+.header {
+
+}
+
+.header-top {
     display: flex;
+    padding: 0 150px 0 140px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     text-align: center;
     height: 37px;
-    padding: 0 140px;
     background-color: rgb(30, 100, 157);
     color: white;
 }
 
-.header_middle {
+.header-top-left-container {
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+}
+
+.header-top-left-item {
+    padding-right: 5px;
+}
+
+.header-top-right-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-top-right-item {
+    padding-left: 20px;
+}
+
+.header-middle {
     height: 80px;
-    padding: 0 140px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     text-align: center;
+    padding: 0 150px 0 140px;
+}
+
+.header-middle-left-side {
+    padding-left: 40px;
+}
+
+.header-middle-right-side {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    /* padding: 0px 10px; */
 }
 
 .header_bottom {
     /* background-color: aqua; */
     width: auto;
     height: 50px;
-    padding: 0 140px;
     display: flex;
     justify-content: space-between; /* Căn trái và phải */
     align-items: center;
     border: 1px solid rgba(0.1, 0.2, 0.3, 0.15);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+    padding: 0 150px 0 140px;
 }
 
 .header_bottom_side{
@@ -38,13 +72,9 @@
     align-items: center;
 }
 
-.header_middle_logo {
-    /* height: 200%;
-    width: auto; */
-    padding-left: 40px;
-}
 
-.logo_shop {
+
+.logo-shop {
     height: 100%;
     width: auto;
 }
@@ -73,13 +103,6 @@
     width: 400px;
     height: 45px;
     border: 2px solid #3db9e5;
-}
-
-.header_middle_right_side {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    padding: 0px 10px;
 }
 
 .header_middle_search_input {
