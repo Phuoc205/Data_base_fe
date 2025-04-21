@@ -1,5 +1,5 @@
 .header {
-
+    width: 100%;
 }
 
 .header-top {
@@ -176,6 +176,7 @@
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
+    border: none;
 }
 
 .header_product_category {
