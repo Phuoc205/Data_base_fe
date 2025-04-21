@@ -12,11 +12,11 @@ function Login() {
                 <div className='login_content'>
                     <div className='login_content_item'>
                         <div className='login_content_item_name'>Email:</div>
-                        <div className='login_content_item_input'><input className='login_content_item_input_input'></input><i class="fa-solid fa-envelope login_content_item_input_icon"></i></div>
+                        <div className='login_content_item_input'><input type='text' className='login_content_item_input_input' placeholder='Nhập email hoặc số điện thoại'></input><i class="fa-solid fa-envelope login_content_item_input_icon"></i></div>
                     </div>
                     <div className='login_content_item'>
                         <div className='login_content_item_name'>Password:</div>
-                        <div className='login_content_item_input'><input className='login_content_item_input_input'></input><i class="fa-solid fa-key login_content_item_input_icon"></i></div>
+                        <div className='login_content_item_input'><input type='text' className='login_content_item_input_input' placeholder='Nhập mật khẩu'></input><i class="fa-solid fa-key login_content_item_input_icon"></i></div>
                     </div>
                 </div>
 

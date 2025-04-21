@@ -1,14 +1,14 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/App.js",
+  entry: "./src/index.js",
   output: {
     path: path.join(__dirname, "/build"),
     filename: "bundle.js"
   },
   devServer: {
     historyApiFallback: true,
-    // các cấu hình khác nếu có
   },
   module: {
     rules: [
@@ -20,10 +20,19 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource', // Dễ dùng hơn `url-loader`/`file-loader`
+        generator: {
+          filename: 'assets/[name].[hash:8][ext]',
+        },
+      },
     ]
   },
-  // Chứa các plugins sẽ cài đặt trong tương lai
   plugins: [
+    new HtmlWebpackPlugin({
+      template: "index.html"
+    })
   ]
 };
