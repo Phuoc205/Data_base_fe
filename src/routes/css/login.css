@@ -85,6 +85,10 @@ h3 {
     color: white;
 }
 
+.login_Submit:hover {
+    cursor: pointer;
+}
+
 .login_forgot_password {
     display: flex;
     flex-direction: row;

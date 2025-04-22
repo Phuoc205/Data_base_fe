@@ -1,5 +1,5 @@
 .header {
-    width: 100%;
+    width: 100vw;
 }
 
 .header-top {
@@ -194,11 +194,6 @@
     background-color: orange;
     box-sizing: border-box;
     border-radius: 0px;
-    display: flex;
-    gap: 8px;
-}
-
-.cart {
     display: flex;
     gap: 8px;
 }

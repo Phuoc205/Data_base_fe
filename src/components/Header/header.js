@@ -3,6 +3,7 @@ import './header.css'
 import '../Button/button.js'
 import Button from '../Button/button.js';
 import logo from '/public/img/logo_shop.png'
+
 function Header() {
     return (
         <div className="header">
@@ -65,8 +66,8 @@ function Header() {
                         content="Trang chủ"
                         link={'/'}
                     />
-                    {/* <div className="header_bottom_button_item">Trang chủ</div> */}
-                    <div className="header_bottom_button_item">Sản phẩm</div>
+                    
+                    <div className="header_bottom_button_item">Tin tức</div>
                     <div className="header_bottom_button_item">Giới thiệu</div>
                     <div className="header_bottom_button_item">Liên hệ</div>
                 </div>
