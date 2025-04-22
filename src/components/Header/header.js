@@ -66,7 +66,7 @@ function Header() {
                         link={'/'}
                     />
                     {/* <div className="header_bottom_button_item">Trang chủ</div> */}
-                    <div className="header_bottom_button_item">Sản phẩm</div>
+                    <div className="header_bottom_button_item">Tin tức</div>
                     <div className="header_bottom_button_item">Giới thiệu</div>
                     <div className="header_bottom_button_item">Liên hệ</div>
                 </div>
