@@ -3,20 +3,19 @@ import './sidebar.css'
 
 function Sidebar(props) {
     return (
-        <section className="product-item">
-            <h2>Danh Mục Sản Phẩm</h2>
-            <div className="category-list">
-                <a href="#" class="category-item">Laptop</a>
-                <a href="#" class="category-item">Case PC</a>
-                <a href="#" class="category-item">Màn hình</a>
-                <a href="#" class="category-item">Tai nghe</a>
-                <a href="#" class="category-item">Tản nhiệt</a>
-                <a href="#" class="category-item">Chuột</a>
-                <a href="#" class="category-item">Bàn phím</a>
-                <a href="#" class="category-item">Bàn ghế</a>
-                <a href="#" class="category-item">Console</a>
-            </div>
-        </section>
+        <aside className="sidebar_container">
+        <ul className="sidebar_item">
+            <li><i className="fa fa-leaf"></i>Laptop</li>
+            <li><i className="fa fa-leaf"></i>Case PC</li>
+            <li><i className="fa fa-leaf"></i>Màn hình</li>
+            <li><i className="fa fa-leaf"></i>Tai nghe</li>
+            <li><i className="fa fa-leaf"></i>Tản nhiệt</li>
+            <li><i className="fa fa-leaf"></i>Chuột</li>
+            <li><i className="fa fa-leaf"></i>Bàn phím</li>
+            <li><i className="fa fa-leaf"></i>Bàn ghế</li>
+            <li><i className="fa fa-leaf"></i>Console</li>
+        </ul>
+    </aside>
     )
 }
 
