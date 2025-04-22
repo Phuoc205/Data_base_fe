@@ -66,7 +66,6 @@ function Header() {
                         content="Trang chủ"
                         link={'/'}
                     />
-                    
                     <div className="header_bottom_button_item">Tin tức</div>
                     <div className="header_bottom_button_item">Giới thiệu</div>
                     <div className="header_bottom_button_item">Liên hệ</div>
