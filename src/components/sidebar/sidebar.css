@@ -8,6 +8,11 @@
     border-bottom-right-radius: 10px;
 }
 
+a {
+    color: black; /* hoặc bất kỳ màu nào bạn muốn */
+    text-decoration: none; /* nếu muốn bỏ gạch chân luôn */
+}
+
 .sidebar_item {
     list-style: none;
     padding-left: 0;
@@ -26,7 +31,10 @@
     cursor: pointer;
     transition: color 0.2s;
 }
-  
-.sidebar_item li:hover {
+.sidebar-item-mini {
+    display: flex;
+    gap: 8px
+}
+.sidebar-item-mini:hover {
     color: #007dac;
 }
