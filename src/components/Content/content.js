@@ -2,10 +2,10 @@
 import React, { useEffect } from 'react';
 import './content.css';
 import Sidebar from '../sidebar/sidebar';
-
+import ProductCard from '../ProductCard/ProductCard';
 function Content() {
     return (
-        <main>
+        <main className='main'>
             <div className="main_header_container">
                 <div className="main_header_items">
                     <Sidebar/>
@@ -68,7 +68,13 @@ function Content() {
 
             <section>
                 <h2>Sản Phẩm Nổi Bật</h2>
-                <div className="featured-products_container"></div>
+                <div className="featured-products_container">
+                    <ProductCard
+                        img_link="/public/products/laptop/laptop.webp"
+                        name="Laptop"
+                        price="17,000,000 VND"
+                    />
+                </div>
             </section>
         </main>
     );

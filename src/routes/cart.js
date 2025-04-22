@@ -8,7 +8,7 @@ function Cart () {
             <Header />
             <CartItem
                 provider= "GearVN"
-                img_link= "/public/products/laptop/laptop.webp"
+                img_link= "/public/img/products/laptop/laptop.webp"
                 info= "thuc an cho laptop"
                 price= "150.000"
                 amount= "150"

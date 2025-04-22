@@ -1,7 +1,7 @@
 import React from "react";
 import './sidebar.css'
 
-function Sidebar(props) {
+function Sidebar() {
     return (
         <aside className="sidebar_container">
         <ul className="sidebar_item">

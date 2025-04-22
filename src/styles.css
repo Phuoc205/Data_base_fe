@@ -19,11 +19,6 @@ head {
     margin: 0;
 }
 
-main {
-    padding: 0px 141px; /* Đồng bộ padding với header */
-    background: linear-gradient(to bottom, var(--main_color), white);
-}
-
 section {
     margin: 40px 0;
 }
