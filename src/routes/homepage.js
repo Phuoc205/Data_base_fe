@@ -1,14 +1,19 @@
 import React from 'react'
 import Header from '../components/Header/header.js'
-import Content from '../components/Content/content.js'
-import Footer from '../components/Footer/Footer.js'
+import ProductCart from '../components/ProductCard/ProductCard.js'
+import Sidebar from '../components/sidebar/sidebar.js'
+
 // Tạo component App
 function Homepage () {
     return (
         <div className='App'>
             <Header />
-            <Content />
-            <Footer />
+            <Sidebar/>
+            <ProductCart
+                img_link="/public/products/laptop/laptop.webp"
+                name="Laptop"
+                price="17,000,000 VND"
+            />
         </div>
     )
 }
