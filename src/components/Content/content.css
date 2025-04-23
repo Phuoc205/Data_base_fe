@@ -1,3 +1,8 @@
+.main {
+    padding: 0px 141px;
+    background: linear-gradient(to bottom, #3db9e5, white);
+}
+
 .main_header_container{
     display: flex;
     flex-direction: row;

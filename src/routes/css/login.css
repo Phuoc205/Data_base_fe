@@ -6,7 +6,7 @@ html {
     font-size: 14px;
     margin: 0;
     height: 100vh;
-    background-image: url('/public/img/Background-xanh-duong-nhat.jpeg');
+    background-image: url('/public/img/background_login.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -20,10 +20,17 @@ html {
     flex-direction: column;
     width: 350px;
     height: 500px;
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
     margin: 40px;
     align-items: center;
     text-align: center;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .login_content {
@@ -42,6 +49,7 @@ html {
     padding-left: 10px;
     margin: 5px 0;
     text-align: left;
+    font-size: 16px;
 }
 
 h3 {
@@ -52,15 +60,30 @@ h3 {
     width: 300px;
     height: 40px;
     border-radius: 10px;
-    background-color: rgb(224, 224, 224);
+    /* background-color: rgb(224, 224, 224); */
     border: 2px solid rgba(85, 85, 85, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(0, 191, 255, 0.5);
+    color: white;
+  
+    box-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: 0.3s ease;
+}
+
+input[type="checkbox"] {
+    width: 10px;
+    height: 10px;
 }
 
 .login_content_item_input_input:focus {
     outline: none;
+    color: white;
 }
 
 .login_content_item_input_icon {
@@ -71,9 +94,16 @@ h3 {
 .login_content_item_input_input {
     width: 260px;
     height: 40px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: 10px;
     padding: 0 10px;
+    
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.login_content_item_input_input::placeholder {
+    font-size: 12px;
+    color: white;
 }
 
 .login_Submit {
@@ -95,4 +125,13 @@ h3 {
     justify-content: space-between;
     width: 300px;
     padding-top: 10px;
+}
+
+.remember-feature {
+    display: flex;
+    flex-direction: row;
+}
+
+.remember_passwword_check {
+    padding-right: 5px;
 }

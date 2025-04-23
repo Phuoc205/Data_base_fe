@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/LEGION/AppData/Local/Temp/3c4835b8-cebe-4821-8b6a-31092bf9e5d8_NguyenTanPhuoc2312776_lab4.zip.5d8/lab4-student/lab4-student/ex3",
+      "program": "c:/Users/LEGION/AppData/Local/Temp/3c4835b8-cebe-4821-8b6a-31092bf9e5d8_NguyenTanPhuoc2312776_lab4.zip.5d8/lab4-student/lab4-student/ex3/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

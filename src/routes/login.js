@@ -1,33 +1,57 @@
 import React from 'react';
 // import '../Button/button'
 import './css/login.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [customerId, setCustomerId] = useState(null);
+    const [isAdminChecked, setIsAdminChecked] = useState(false);
+
+    useEffect(() => {
+        const customerId = localStorage.getItem('customer_id');
+        if (customerId) {
+            setCustomerId(id);
+        }
+    }, []);
 
     const handleLogin = async () => {
         try {
             const response = await fetch('/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password })
+                body: JSON.stringify({ username, password, isAdminChecked })
             });
 
             const data = await response.json();
-            alert(data.message);
+
+            if(data.success) {
+                localStorage.setItem('customer_id', data.customer_id);
+                setCustomerId(data.customer_id);
+            } else {
+                alert('Đăng nhập thất bại');
+            }
         } catch (error) {
             console.error('Login error:', error);
             alert('Lỗi khi đăng nhập. Vui lòng thử lại.');
         }
     };
 
-    const handleSignup = async () => {
+    const handleLogout = () => {
+        localStorage.removeItem('customer_id');
+        window.location.href = '/login';
+    };
 
-    }
-
-    return (
+    if(customerId) {
+        return (
+            <div className="main_screen">
+                <div className="login_toast">
+                    Hello, 
+                </div>
+            </div>
+        )
+    } else return (
         <div className="main_screen">
             <div className="login_toast">
                 <div className="login_header">
@@ -62,7 +86,14 @@ function Login() {
                 </div>
 
                 <div className='login_forgot_password'>
-                    <div>Remember</div>
+                    <div className='remember-feature'>
+                        <div className="remember_passwword_check"><input 
+                            type="checkbox"
+                            checked={isAdminChecked} 
+                            onChange={(e) => setIsAdminChecked(e.target.checked)}
+                        /></div>
+                        Is admin
+                    </div>
                     <div>Forgot password</div>
                 </div>
 
