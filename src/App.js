@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from './routes/login.js'
 import Homepage from './routes/homepage.js'
 import Cart from './routes/cart.js'
-function App() {
+function App() {  
   return(
     <BrowserRouter>
       <Routes>

@@ -56,13 +56,13 @@ function Content() {
                 <div className="category-list">
                     <a href="/laptop" className="category-item">Laptop</a>
                     <a href="/casepc" className="category-item">Case PC</a>
-                    <a href="#" className="category-item">Màn hình</a>
-                    <a href="#" className="category-item">Tai nghe</a>
-                    <a href="#" className="category-item">Tản nhiệt</a>
-                    <a href="#" className="category-item">Chuột</a>
-                    <a href="#" className="category-item">Bàn phím</a>
-                    <a href="#" className="category-item">Bàn ghế</a>
-                    <a href="#" className="category-item">Console</a>
+                    <a href="/monitor" className="category-item">Màn hình</a>
+                    <a href="/headphone" className="category-item">Tai nghe</a>
+                    <a href="/cooler" className="category-item">Tản nhiệt</a>
+                    <a href="/mouse" className="category-item">Chuột</a>
+                    <a href="/keyboard" className="category-item">Bàn phím</a>
+                    <a href="/table" className="category-item">Bàn ghế</a>
+                    <a href="/console" className="category-item">Console</a>
                 </div>
             </section>
 
@@ -70,7 +70,7 @@ function Content() {
                 <h2>Sản Phẩm Nổi Bật</h2>
                 <div className="featured-products_container">
                     <ProductCard
-                        img_link="/public/products/laptop/laptop.webp"
+                        img_link="/img/products/laptop/laptop.webp"
                         name="Laptop"
                         price="17,000,000 VND"
                     />
