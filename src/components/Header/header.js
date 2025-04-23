@@ -20,7 +20,12 @@ function Header() {
 
             <div className="header-middle">
                 <div className="header-middle-left-side">
-                    <img src={logo} alt="" className="logo-shop" />
+                    {/* <img src={logo} alt="Trang chủ" className="logo-shop cursor-pointer" /> */}
+                    <Button
+                        className="header_bottom_button_item"
+                        content={<img src={logo} alt="Trang chủ" className="logo-shop cursor-pointer" />}
+                        link={'/'}
+                    />    
                 </div>
                 <div className="header-middle-right-side">
                     <div className="header_middle_search">
@@ -66,9 +71,26 @@ function Header() {
                         content="Trang chủ"
                         link={'/'}
                     />
-                    <div className="header_bottom_button_item">Tin tức</div>
-                    <div className="header_bottom_button_item">Giới thiệu</div>
-                    <div className="header_bottom_button_item">Liên hệ</div>
+                    <Button
+                        className="header_bottom_button_item"
+                        content="Tin tức"
+                        link={'/'}
+                    />
+                    <Button
+                        className="header_bottom_button_item"
+                        content="Giới thiệu"
+                        link={'/introduction'}
+                    />
+                    <Button
+                        className="header_bottom_button_item"
+                        content="Liên hệ"
+                        link={'/'}
+                    />
+                    <Button
+                        className="header_bottom_button_item"
+                        content="Test"
+                        link={'/test'}
+                    />
                 </div>
 
                 <div className="header_bottom_side">
