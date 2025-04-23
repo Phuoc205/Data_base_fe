@@ -1,0 +1,223 @@
+.header {
+    width: 100vw;
+}
+
+.header-top {
+    display: flex;
+    padding: 0 150px 0 140px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    height: 37px;
+    background-color: rgb(30, 100, 157);
+    color: white;
+}
+
+.header-top-left-container {
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+}
+
+.header-top-left-item {
+    padding-right: 5px;
+}
+
+.header-top-right-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-top-right-item {
+    padding-left: 20px;
+}
+
+.header-middle {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0 150px 0 140px;
+}
+
+.header-middle-left-side {
+    padding-left: 40px;
+}
+
+.header-middle-right-side {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    /* padding: 0px 10px; */
+}
+
+.header_bottom {
+    /* background-color: aqua; */
+    width: auto;
+    height: 50px;
+    display: flex;
+    justify-content: space-between; /* Căn trái và phải */
+    align-items: center;
+    border: 1px solid rgba(0.1, 0.2, 0.3, 0.15);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+    padding: 0 150px 0 140px;
+}
+
+.header_bottom_side{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+
+.logo-shop {
+    height: 100%;
+    width: auto;
+}
+
+.header_middle_logo img {
+    max-height: 80px;
+    max-width: auto;
+    object-fit: contain;
+}
+
+.header_middle_search{
+    height: 37px;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.header_middle_search {
+    display: flex;
+    align-items: center;
+    border-radius: 30px; /* Bo tròn */
+    width: 400px;
+    height: 45px;
+    border: 2px solid #3db9e5;
+}
+a
+.header_middle_search_input {
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    flex: 1;
+    padding: 0px 18px ;
+    font-size: 17px;
+}
+
+.header_middle_search_button {
+    height: 47px;
+    width: 113px;
+    border: none;
+    color: white;
+    background-color: #3db9e5;
+    cursor: pointer;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.header_middle_search_button_logo {
+    padding: 0px 0px 0px 12px;
+}
+
+.header_middle_search_button_words {
+    padding: 0px 9px 0px 9px;
+}
+
+.header_middle_search_button:hover {
+    background: rgba(15, 33, 141, 0.2);
+}
+
+.header_middle_other {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.header_middle_other_left_side {
+    font-size: 28px;
+    color: rgb(222, 52, 22);
+}
+
+.header_middle_other_right_side {
+    padding-left: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.header_middle_other_items {
+    height: 50px;
+    width: 235px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 20px;
+}
+.header_middle_other_right_side_item {
+    padding: 2px 0;
+}
+
+.header_bottom_button_item {
+    color: #000;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 16px 10px;
+    margin: 0 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
+.header_product_category {
+    width: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header_product_category_item {
+    padding: 5px 10px;
+}
+
+.hotline {
+    background-color: orange;
+    box-sizing: border-box;
+    border-radius: 0px;
+    display: flex;
+    gap: 8px;
+}
+
+.account {
+    display: flex;
+    gap: 8px;
+}
+
+.category {
+    /* padding: 0 15px; */
+    background-color: var(--main_color);
+    height: 52px;
+    width: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.category_word {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
