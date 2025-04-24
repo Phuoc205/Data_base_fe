@@ -1,9 +1,33 @@
 // Content.jsx
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './content.css';
 import Sidebar from '../sidebar/sidebar';
 import ProductCard from '../ProductCard/ProductCard';
+
 function Content() {
+    const [products, setProducts] = useState([]);
+
+useEffect(() => {
+    const fetchProduct = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/products');
+            const data = await response.json();
+            
+            if (data.success) {
+                setProducts(data.products); // giả sử API trả về { success: true, products: [...] }
+                console.log(data.products);
+            } else {
+                alert('Không lấy được danh sách sản phẩm!');
+            }
+        } catch (err) {
+            console.error('Lỗi lấy sản phẩm:', err);
+            alert('Có lỗi xảy ra khi tải sản phẩm!');
+        }
+    };
+
+    fetchProduct();
+}, []);
+
     return (
         <main className='main'>
             <div className="main_header_container">
@@ -69,11 +93,15 @@ function Content() {
             <section>
                 <h2>Sản Phẩm Nổi Bật</h2>
                 <div className="featured-products_container">
-                    <ProductCard
-                        img_link="/img/products/laptop/laptop.webp"
-                        name="Laptop"
-                        price="17,000,000 VND"
-                    />
+                    {products.map((p, index) => (
+                        <ProductCard
+                            key={index}
+                            img_link={p.IMAGE_LINK}
+                            name={p.PRODUCT_NAME}
+                            price={p.PRICE}
+                            product_id={p.PRODUCT_ID}
+                        />
+                    ))}
                 </div>
             </section>
         </main>

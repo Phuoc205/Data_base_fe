@@ -17,7 +17,7 @@ function Header() {
                     <div className="header-top-right-item">Yêu thích</div>
                 </div>
             </div>
-a
+
             <div className="header-middle">
                 <div className="header-middle-left-side">
                     <img src={logo} alt="" className="logo-shop" />
@@ -67,7 +67,11 @@ a
                         link={'/'}
                     />
                     <div className="header_bottom_button_item">Tin tức</div>
-                    <div className="header_bottom_button_item">Giới thiệu</div>
+                    <Button
+                        className="header_bottom_button_item"
+                        content="Giới thiệu"
+                        link={'/introduction'}
+                    />
                     <div className="header_bottom_button_item">Liên hệ</div>
                 </div>
 

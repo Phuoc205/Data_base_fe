@@ -34,7 +34,7 @@ function Cart() {
         const customerID = localStorage.getItem('customer_id');
         if (!customerID) return;
         
-        fetch('http://localhost:3000/cart?customer_id=${customerID}')
+        fetch(`http://localhost:3000/cart?customer_id=${customerID}`)
             .then(res => res.json())
             .then(data => {
                 setCartItems(data.items);     // giả sử API trả về { items: [...], user: {...} }

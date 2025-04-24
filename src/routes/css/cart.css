@@ -9,7 +9,6 @@
 
 .main-Cart {
     margin: 10px 140px 0 141px;
-    background-color: aqua;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,5 +23,5 @@
 }
 
 .list-Cart {
-    
+
 }

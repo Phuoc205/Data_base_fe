@@ -135,3 +135,35 @@ input[type="checkbox"] {
 .remember_passwword_check {
     padding-right: 5px;
 }
+
+.log_out {
+    padding: 20px 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 50px;
+}
+
+.log_out:hover {
+    cursor: pointer;
+}
+
+.log-out-toast {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-back-home {
+    padding: 20px 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 100px;
+}
+
+.login-back-home:hover {
+    cursor: pointer;
+}
+
+.say_hello {
+    font-size: 20px;
+    margin-top: 20px;
+}

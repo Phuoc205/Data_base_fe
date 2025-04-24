@@ -2,7 +2,7 @@ import React from "react";
 import Products from "../products";
 import ProductCard from "../../components/ProductCard/ProductCard";
 
-function Laptop() {
+function Keyboard() {
   return (
     <Products>
       {Array(10).fill(0).map((_, i) => (
@@ -17,4 +17,4 @@ function Laptop() {
   );
 }
 
-export default Laptop;
+export default Keyboard;
