@@ -5,7 +5,7 @@ function ProductCard(props) {
 
     const handleBuy = async () => {
         const customer_id = localStorage.getItem('customer_id');
-        const product_id = props.id; // truyền id từ props
+        const product_id = props.product_id; // truyền product_id từ props
         const amount = 1;
 
         if (!customer_id) {
@@ -19,9 +19,9 @@ function ProductCard(props) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ customer_id, product_id, amount })
             });
-
+            console.log(customer_id, product_id, amount )
             const data = await response.json();
-            
+
             if (data.success) {
                 alert('Đã thêm vào giỏ hàng!');
             } else {

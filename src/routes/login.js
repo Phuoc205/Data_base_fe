@@ -32,7 +32,7 @@ function Login() {
             });
             
             const data = await response.json();
-            console.log(data);
+
             if(data.success) {
                 localStorage.setItem('customer_id', data.customer_id);
                 localStorage.setItem('name', data.name)
@@ -44,7 +44,7 @@ function Login() {
                     localStorage.setItem('isAdmin', false);
                     setIsAdmin(false);
                 }
-                console.log(data.name);
+                
                 setCustomerId(data.customer_id);
                 setName(data.name);
             } else {

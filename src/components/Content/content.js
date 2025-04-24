@@ -15,7 +15,6 @@ useEffect(() => {
             
             if (data.success) {
                 setProducts(data.products); // giả sử API trả về { success: true, products: [...] }
-                console.log(data.products);
             } else {
                 alert('Không lấy được danh sách sản phẩm!');
             }
