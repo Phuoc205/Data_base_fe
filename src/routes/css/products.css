@@ -1,0 +1,11 @@
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.product-grid >* {
+    width: 18%;
+}

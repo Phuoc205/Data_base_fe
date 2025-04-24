@@ -27,11 +27,28 @@ function Content() {
                     </div>
                 </div>
 
+<<<<<<< Updated upstream
                 <section>
                     <div className="banner">
                         <img src="/img/banner/banner-ss1.jpg" alt="Banner linh kiện điện tử" className="banner-image" />
                     </div>
                 </section>
+=======
+            <section className="category-section">
+                <h2>Danh Mục Sản Phẩm</h2>
+                <div className="category-list">
+                    <a href="/laptop" className="category-item">Laptop</a>
+                    <a href="/casepc" className="category-item">Case PC</a>
+                    <a href="/monitor" className="category-item">Màn hình</a>
+                    <a href="/headphones" className="category-item">Tai nghe</a>
+                    <a href="/cooler" className="category-item">Tản nhiệt</a>
+                    <a href="/mouse" className="category-item">Chuột</a>
+                    <a href="/keyboard" className="category-item">Bàn phím</a>
+                    <a href="/table" className="category-item">Bàn ghế</a>
+                    <a href="/console" className="category-item">Console</a>
+                </div>
+            </section>
+>>>>>>> Stashed changes
 
                 <section>
                     <h2>Đang Bán Chạy</h2>
