@@ -6,15 +6,15 @@ import Cart from './routes/cart.js'
 import Introduction from './routes/Info.js'
 import Test from './routes/test.js'
 
-// import Laptop from './routes/Product/laptop.js'
-// import CasePC from './routes/Product/casepc.js'
-// import Table from './routes/Product/table.js'
-// import Monitor from './routes/Product/monitor.js'
-// import Cooler from './routes/Product/cooler.js'
-// import Console from './routes/Product/console.js'
-// import Headphones from './routes/Product/headphones.js'
-// import Keyboard from './routes/Product/keyboard.js'
-// import Mouse from './routes/Product/mouse.js'
+import Laptop from './routes/Product/laptop.js'
+import CasePC from './routes/Product/casepc.js'
+import Table from './routes/Product/table.js'
+import Monitor from './routes/Product/monitor.js'
+import Cooler from './routes/Product/cooler.js'
+import Console from './routes/Product/console.js'
+import Headphones from './routes/Product/headphones.js'
+import Keyboard from './routes/Product/keyboard.js'
+import Mouse from './routes/Product/mouse.js'
 
 function App() {
   return(
@@ -25,7 +25,7 @@ function App() {
         <Route path="/cart" element={<Cart />}/>
         <Route path="/introduction" element={<Introduction/>}/>
         <Route path="/test" element={<Test/>}/>
-        {/* <Route path="/laptop" element={<Laptop/>}/>
+        <Route path="/laptop" element={<Laptop/>}/>
         <Route path="/casepc" element={<CasePC/>}/>
         <Route path="/table" element={<Table/>}/>
         <Route path="/monitor" element={<Monitor/>}/>
@@ -33,7 +33,7 @@ function App() {
         <Route path="/console" element={<Console/>}/>
         <Route path="/headphones" element={<Headphones/>}/>
         <Route path="/keyboard" element={<Keyboard/>}/>
-        <Route path="/mouse" element={<Mouse/>}/> */}
+        <Route path="/mouse" element={<Mouse/>}/>
       </Routes>
     </BrowserRouter>
   )

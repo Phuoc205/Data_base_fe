@@ -81,7 +81,7 @@ useEffect(() => {
                     <a href="/laptop" className="category-item">Laptop</a>
                     <a href="/casepc" className="category-item">Case PC</a>
                     <a href="/monitor" className="category-item">Màn hình</a>
-                    <a href="/headphone" className="category-item">Tai nghe</a>
+                    <a href="/headphones" className="category-item">Tai nghe</a>
                     <a href="/cooler" className="category-item">Tản nhiệt</a>
                     <a href="/mouse" className="category-item">Chuột</a>
                     <a href="/keyboard" className="category-item">Bàn phím</a>
