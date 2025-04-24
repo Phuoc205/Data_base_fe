@@ -9,7 +9,7 @@ function Sidebar() {
                 <li><Link to="/laptop" className="sidebar-item-mini"><i className="fa fa-leaf"></i> Laptop</Link></li>
                 <li><Link to="/casepc" className="sidebar-item-mini"><i className="fa fa-leaf"></i> Case PC</Link></li>
                 <li><Link to="/monitor" className="sidebar-item-mini"><i className="fa fa-leaf"></i> Màn hình</Link></li>
-                <li><Link to="/headphone" className="sidebar-item-mini"><i className="fa fa-leaf"></i> Tai nghe</Link></li>
+                <li><Link to="/headphones" className="sidebar-item-mini"><i className="fa fa-leaf"></i> Tai nghe</Link></li>
                 <li><Link to="/cooler" className="sidebar-item-mini"><i className="fa fa-leaf"></i> Tản nhiệt</Link></li>
                 <li><Link to="/mouse" className="sidebar-item-mini"><i className="fa fa-leaf"></i> Chuột</Link></li>
                 <li><Link to="/keyboard" className="sidebar-item-mini"><i className="fa fa-leaf"></i> Bàn phím</Link></li>
