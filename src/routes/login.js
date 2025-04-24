@@ -2,33 +2,51 @@ import React from 'react';
 // import '../Button/button'
 import './css/login.css'
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [customerId, setCustomerId] = useState(null);
-    const [isAdminChecked, setIsAdminChecked] = useState(false);
-
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [name, setName] = useState('');
+    const navigate = useNavigate();
+    
     useEffect(() => {
         const customerId = localStorage.getItem('customer_id');
+        const customerName = localStorage.getItem('name');
+        const isAdmin = localStorage.getItem('isAdmin');
         if (customerId) {
-            setCustomerId(id);
+            setCustomerId(customerId);
+            setName(customerName);
+            setIsAdmin(isAdmin === 'true');
         }
     }, []);
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('/login', {
+            const response = await fetch('http://localhost:3000/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password, isAdminChecked })
+                body: JSON.stringify({ username, password})
             });
-
+            
             const data = await response.json();
-
+            console.log(data);
             if(data.success) {
                 localStorage.setItem('customer_id', data.customer_id);
+                localStorage.setItem('name', data.name)
+                if(data.admin) {
+                    localStorage.setItem('isAdmin', true);
+                    setIsAdmin(true);
+                }
+                else {
+                    localStorage.setItem('isAdmin', false);
+                    setIsAdmin(false);
+                }
+                console.log(data.name);
                 setCustomerId(data.customer_id);
+                setName(data.name);
             } else {
                 alert('Đăng nhập thất bại');
             }
@@ -40,17 +58,57 @@ function Login() {
 
     const handleLogout = () => {
         localStorage.removeItem('customer_id');
+        localStorage.removeItem('name');
+        localStorage.removeItem('isAdmin');
         window.location.href = '/login';
     };
 
+    const backHome = () => {
+        navigate('/');
+    }
+
+    const management = () => {
+        navigate('management')
+    }
+
     if(customerId) {
-        return (
+
+        // Sửa cho giao diện đẹp
+        if(isAdmin) { // Giao diện cho admin
+            return (
+                <div className="main_screen">
+                    <div className="login_toast log-out-toast">
+                        <div className='say_hello'>
+                            Hello, {name}
+                        </div>
+
+                        <div className='log_out' onClick={handleLogout}>
+                            Log out
+                        </div>
+
+                        <div className='login-back-home' onClick={management}>
+                            Đến quản lý
+                        </div>
+                    </div>
+                </div>
+            )
+        } else return (  // Giao diện cho user
             <div className="main_screen">
-                <div className="login_toast">
-                    Hello, 
+                <div className="login_toast log-out-toast">
+                    <div className='say_hello'>
+                        Hello, {name}
+                    </div>
+
+                    <div className='log_out' onClick={handleLogout}>
+                        Log out
+                    </div>
+                    <div className='login-back-home' onClick={backHome}>
+                        Trở về trang chủ
+                    </div>
                 </div>
             </div>
         )
+        // Sửa giao diện đẹp
     } else return (
         <div className="main_screen">
             <div className="login_toast">
@@ -89,10 +147,8 @@ function Login() {
                     <div className='remember-feature'>
                         <div className="remember_passwword_check"><input 
                             type="checkbox"
-                            checked={isAdminChecked} 
-                            onChange={(e) => setIsAdminChecked(e.target.checked)}
                         /></div>
-                        Is admin
+                        Remember me
                     </div>
                     <div>Forgot password</div>
                 </div>
