@@ -4,17 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from './routes/login.js'
 import Homepage from './routes/homepage.js'
 import Cart from './routes/cart.js'
-<<<<<<< Updated upstream
-function App() {
-  return(
-    <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Homepage />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/cart" element={<Cart />}/>
-    </Routes>
-  </BrowserRouter>
-=======
 import Laptop from './routes/Product/laptop.js'
 import CasePC from './routes/Product/casepc.js'
 import Table from './routes/Product/table.js'
@@ -42,7 +31,6 @@ function App() {
         <Route path="/mouse" element={<Mouse/>}/>
       </Routes>
     </BrowserRouter>
->>>>>>> Stashed changes
   )
 }
 export default App

@@ -27,13 +27,6 @@ function Content() {
                     </div>
                 </div>
 
-<<<<<<< Updated upstream
-                <section>
-                    <div className="banner">
-                        <img src="/img/banner/banner-ss1.jpg" alt="Banner linh kiện điện tử" className="banner-image" />
-                    </div>
-                </section>
-=======
             <section className="category-section">
                 <h2>Danh Mục Sản Phẩm</h2>
                 <div className="category-list">
@@ -48,7 +41,6 @@ function Content() {
                     <a href="/console" className="category-item">Console</a>
                 </div>
             </section>
->>>>>>> Stashed changes
 
                 <section>
                     <h2>Đang Bán Chạy</h2>
