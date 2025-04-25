@@ -1,0 +1,27 @@
+.select-all {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    width: 800px;
+    height: 40px;
+}
+
+.main-Cart {
+    margin: 10px 140px 0 141px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.total-price {
+    width: 440px;
+    height: 440px;
+    background-color: white;
+    align-content: right;
+    margin: 0 10px;
+}
+
+.list-Cart {
+
+}

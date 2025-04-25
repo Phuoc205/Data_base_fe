@@ -1,0 +1,111 @@
+.cart-item {
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+    width: 800px;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 12px;
+}
+
+.cart-item-header {
+    border-bottom: 1px solid rgba(92, 99, 102, 0.2);
+    height: 38px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cart-item-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 80px;
+    padding: 16px 0;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.tick-check {
+    padding: 0 10px;
+}
+
+.store-icon {
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    padding: 0 5px;
+}
+
+.cart-info-container {
+    width: 350px;
+    padding-left: 10px;
+}
+
+.cart-price-icon {
+    padding: 10px;
+}
+
+.cart-amount-container {
+    display: flex;
+    flex-direction: row;
+    padding-left: 30px;
+}
+
+.amount-icon {
+    width: 30px;
+    height: 30px;
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.amount-icon:hover {
+    cursor: pointer;
+}
+
+.cart-price-icon-group {
+    color: rgb(231, 203, 166);
+}
+
+.amount-number {
+    height: 30px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-amount {
+    border: none;
+    height: 30px;
+    width: 60px;
+    text-align: center;
+}
+
+.input-amount:focus {
+    outline: none;
+}
+
+.input-amount:focus::placeholder {
+    color: transparent;
+}
+
+.cart-price-container {
+    width: 120px;
+    padding-right: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
+}

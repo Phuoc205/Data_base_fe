@@ -1,0 +1,139 @@
+.footer {
+    background-color: #0d7ca8;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ===== PHẦN ĐĂNG KÝ EMAIL ===== */
+.subscribe-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 60px;
+    gap: 20px;
+}
+
+.logo {
+    width: 80px;
+}
+
+.subscribe-form {
+    display: flex;
+    background-color: #fff;
+    border-radius: 999px;
+    overflow: hidden;
+    max-width: 500px;
+    width: 100%;
+    padding: 0;
+    margin-left: auto;
+}
+
+.email-input {
+    border: none;
+    padding: 10px 16px;
+    flex: 1;
+    font-size: 14px;
+    outline: none;
+    border-radius: 999px 0 0 999px;
+}
+
+.subscribe-btn {
+    background-color: #0d7da8;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 16px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.subscribe-btn:hover {
+    background-color: #0b6a91;
+}
+
+
+
+/* ===== CÁC CỘT FOOTER CHÍNH ===== */
+.footer-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-column {
+    flex: 1 1 220px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin: 10px 0;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.footer-column i {
+    margin-right: 8px;
+    color: #fff;
+    display: inline-block;
+    width: 20px;
+}
+.footer, .footer-column ul li, .footer-bottom {
+    font-size: 14px;
+}
+
+/* ===== PHẦN THANH TOÁN & MẠNG XÃ HỘI ===== */
+.payment-methods,
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.payment-methods img {
+    width: 40px;
+    height: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 6px;
+}
+
+.social-icons i {
+    font-size: 18px;
+    color: white;
+    transition: color 0.3s;
+}
+
+.social-icons i:hover {
+    color: #ccc;
+}
+
+/* ===== PHẦN BẢN QUYỀN CUỐI ===== */
+.footer-bottom {
+    margin-top: 30px;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 20px;
+}

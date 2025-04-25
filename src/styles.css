@@ -1,0 +1,35 @@
+:root {
+    --color_word: rgb(242, 105, 26);
+    --main_color: #3db9e5;
+}
+.hightlight_word {
+    color: var(--color_word);
+    font-weight: bold;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+head {
+    margin: 0;
+}
+
+section {
+    margin: 40px 0;
+}
+
+h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+input {
+    border: none;
+}
