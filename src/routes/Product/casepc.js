@@ -1,7 +1,9 @@
 import React from "react";
 import Products from "../products";
 import ProductCard from "../../components/ProductCard/ProductCard";
-
+import Header from "../../components/Header/header";
+import Footer from "../../components/Footer/Footer";
+import '../css/Product/casepc.css'
 function CasePC(props) {
 
   // const renderProduct = (props) => {
@@ -10,19 +12,11 @@ function CasePC(props) {
   // }
 
   return (
-    <Products>
-      {/* {Array(10).fill(0).map((_, i) => (
-        <ProductCard
-          key={i}
-          img_link="/img/products/laptop/laptop.webp"
-          name="Laptop1"
-          price="150.000"
-        />
-      ))} */}
-      product.CASE_TYPE = ?
-      product.NUM_PORTS = ?
-      renderProduct(pproduct)
-    </Products>
+    <div className="casepc"> 
+      <Header/>
+
+      <Footer/>
+    </div>
   );
 }
 
