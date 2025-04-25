@@ -1,4 +1,4 @@
-import CartItem from '/src/components/CartItem/CartItem.js';
+import CartItem from '../CartItem/CartItem.js';
 import React, { useEffect, useState } from 'react';
 
 function CartList({ items, onCheck }) {

@@ -38,8 +38,25 @@ function CartItem(props) {
                     <p className="cart-item-info">{props.info}</p>
                     {props.manufacture}
                 </div>
+                
                 <div className="cart-price-container">
                     {(props.amount * props.price).toLocaleString()}
+                    <div className="cart-price-icon-group">
+                        <i className="fa-solid fa-heart cart-price-icon"></i>
+                        <i className="fa-solid fa-trash cart-price-icon"></i>
+                    </div>
+                </div>
+
+                <div className="cart-amount-container">
+                    <div className="amount-icon">
+                        <i className="fa-solid fa-minus"></i>
+                    </div>
+                    <div className="amount-number">
+                        {props.amount}
+                    </div>
+                    <div className="amount-icon">
+                        <i className="fa-solid fa-plus"></i>
+                    </div>
                 </div>
             </div>
         </div>
