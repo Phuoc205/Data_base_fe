@@ -29,7 +29,7 @@ function Cart() {
                 const normalized = normalizeCartItems(data.items);
                 setCartItems(normalized);
                 setUserInfo(data.user);
-                console.log("Thông tin người dùng:", data.user);
+                console.log("Thông tin người dùng:", data.items);
             })
             .catch(err => console.error('Lỗi khi fetch giỏ hàng:', err));
     }, []);

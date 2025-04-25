@@ -38,7 +38,7 @@ function ProductCard(props) {
             <img src={props.img_link} className="product-image" />
             <div className="product-info">
                 <h3 className="product-name">{props.name}</h3>
-                <p className="product-price">{props.price}</p>
+                <p className="product-price">{props.price.toLocaleString()} VNĐ</p>
                 <div className="product-button" onClick={handleBuy}>
                     Mua ngay
                 </div>
