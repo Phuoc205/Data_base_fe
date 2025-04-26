@@ -10,6 +10,7 @@ function Cart() {
 
     function normalizeCartItems(items) {
         return items.map(item => ({
+            product_id: item.PRODUCT_ID || item.product_id || '',
             info: item.PRODUCT_NAME || item.info || '',
             img_link: item.IMAGE_LINK || item.img_link || '',
             price: Number(item.PRICE || item.price || 0),
@@ -29,7 +30,6 @@ function Cart() {
                 const normalized = normalizeCartItems(data.items);
                 setCartItems(normalized);
                 setUserInfo(data.user);
-                console.log("Thông tin người dùng:", data.user);
             })
             .catch(err => console.error('Lỗi khi fetch giỏ hàng:', err));
     }, []);
@@ -53,6 +53,78 @@ function Cart() {
         setSelectAll(newChecked);
     };
 
+    const handleIncreaseAmount = (index) => {
+        const item = cartItems[index];
+        const newAmount = item.amount + 1;
+        updateAmountOnServer(item, newAmount, index);
+    };
+    
+    const handleDecreaseAmount = (index) => {
+        const item = cartItems[index];
+        if (item.amount > 1) {
+            const newAmount = item.amount - 1;
+            updateAmountOnServer(item, newAmount, index);
+        }
+    };
+    
+    const updateAmountOnServer = (item, newAmount, index) => {
+        fetch('http://localhost:3000/cart/update-amount', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                customer_id: localStorage.getItem('customer_id'),
+                product_id: item.product_id,
+                amount: newAmount
+            })
+        })
+        .then(res => {
+            if (res.ok) {
+                setCartItems(prevItems => {
+                    const updatedItems = [...prevItems];
+                    updatedItems[index].amount = newAmount;
+                    return updatedItems;
+                });
+            } else {
+                console.error('Không update được');
+            }
+        })
+        .catch(err => console.error('Lỗi khi update amount:', err));
+    };
+
+    const handleDelete = async (product_id) => {
+        const customer_id = localStorage.getItem('customer_id');
+        if (!customer_id) {
+            alert('Bạn cần đăng nhập');
+            return;
+        }
+    
+        if (!window.confirm('Bạn chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?')) {
+            return;
+        }
+    
+        try {
+            const response = await fetch('http://localhost:3000/cart/delete', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ customer_id, product_id })
+            });
+    
+            const data = await response.json();
+            if (data.success) {
+                alert('Xóa thành công!');
+                // Cập nhật lại danh sách cart (có thể gọi lại API lấy cart mới hoặc xóa trên state)
+                fetchCart(); // hoặc filter lại products
+            } else {
+                alert('Xóa thất bại!');
+            }
+        } catch (err) {
+            console.error('Lỗi xóa sản phẩm:', err);
+            alert('Có lỗi xảy ra, thử lại sau!');
+        }
+    };    
+
     const totalPrice = cartItems.reduce((total, item) => {
         return item.checked ? total + item.amount * item.price : total;
     }, 0);
@@ -74,7 +146,7 @@ function Cart() {
                         <div>SELECT ALL</div>
                     </div>
 
-                    <CartList items={cartItems} onCheck={handleItemCheck} />
+                    <CartList items={cartItems} onCheck={handleItemCheck} onIncrease={handleIncreaseAmount} onDecrease={handleDecreaseAmount} onDelete={handleDelete}/>
                 </div>
 
                 <div className='total-price'>
