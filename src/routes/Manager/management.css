@@ -176,7 +176,7 @@ body {
 }
 
 /* Sidebar Styles */
-.sidebar {
+.mangement-sidebar {
   position: fixed;
   top: 70px;
   left: 0;
@@ -190,11 +190,11 @@ body {
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar-section {
+.mangement-sidebar-section {
   margin-bottom: 24px;
 }
 
-.sidebar-section h3 {
+.mangement-sidebar-section h3 {
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 12px;
@@ -203,7 +203,7 @@ body {
   letter-spacing: 0.5px;
 }
 
-.sidebar-item {
+.mangement-sidebar-item {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -230,13 +230,13 @@ body {
   background-color: #efecec;
 }
 
-.sidebar-item:hover {
+.mangement-sidebar-item:hover {
   background-color: #efecec; /* Màu nền trắng */
   color: #00b768; /* Khi hover, chữ đổi thành xanh */
   transform: translateX(4px);
 }
 
-.sidebar-item .icon {
+.mangement-sidebar-item .icon {
   font-size: 18px;
 }
 

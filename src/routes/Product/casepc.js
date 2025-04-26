@@ -46,7 +46,14 @@ function CasePC(props) {
                 <h2>{selectedProduct.PRODUCT_NAME}</h2>
                 <img src={selectedProduct.IMAGE_LINK} alt={selectedProduct.PRODUCT_NAME} />
                 <p>Price: {selectedProduct.PRICE}</p>
-                <p>{selectedProduct.description}</p>
+                <p>Provider: {selectedProduct.MANUFACTURE}</p>
+                <p>Case type: {selectedProduct.CASE_TYPE}</p>
+                <p>Number of ports: {selectedProduct.NUM_PORTS}</p>
+                <p>Connection Port: {selectedProduct.CONNECTION_PORTS}</p>
+                <p>Material: {selectedProduct.MATERIAL}</p>
+                <p>Color: {selectedProduct.COLOR}</p>
+                <p>Dimension: {selectedProduct.DIMENSION}</p>
+                <p>Main board size: {selectedProduct.MBOARD_SIZE}</p>
               </div>
             ) : (
               <p>Select a product to see details</p>

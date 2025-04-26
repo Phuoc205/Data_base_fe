@@ -43,30 +43,30 @@ function Manage() {
         </div>
       </div>
 
-      <div className="sidebar">
-        <div className="sidebar-section">
+      <div className="mangement-sidebar">
+        <div className="mangement-sidebar-section">
           <h3>Sản phẩm</h3>
-          <Button className="sidebar-item" link="/login/management/product_categories">
+          <Button className="mangement-sidebar-item" link="/login/management/product_categories">
             <span className="icon">🏠︎</span> Danh sách sản phẩm
           </Button>
-          <Button className="sidebar-item" link="/login/management/product_categories">
+          <Button className="mangement-sidebar-item" link="/login/management/product_categories">
             <span className="icon">☰ </span> Danh mục sản phẩm
           </Button>
-          <Button className="sidebar-item" link="/units">
+          <Button className="mangement-sidebar-item" link="/units">
             <span className="icon">⌨</span> Đơn vị tính
           </Button>
-          <Button className="sidebar-item" link="/product-stats">
+          <Button className="mangement-sidebar-item" link="/product-stats">
             <span className="icon">🗿</span> Thống kê sản phẩm
           </Button>
         </div>
 
         <div className="report-section">
           <h3>Báo cáo</h3>
-          <div className="sidebar-section">
-          <Button className="sidebar-item" link="/login/management/product_categories">
+          <div className="mangement-sidebar-section">
+          <Button className="mangement-sidebar-item" link="/login/management/product_categories">
             <span className="icon"></span> Quý I 2025
           </Button>
-          <Button className="sidebar-item" link="/login/management/product_categories">
+          <Button className="mangement-sidebar-item" link="/login/management/product_categories">
             <span className="icon"></span> Quý II 2025
           </Button>
         </div>

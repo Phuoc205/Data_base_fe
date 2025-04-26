@@ -6,7 +6,6 @@ import Cart from './routes/cart.js'
 import Introduction from './routes/Info.js'
 import Test from './routes/test.js'
 
-
 import Laptop from './routes/Product/laptop.js'
 import CasePC from './routes/Product/casepc.js'
 import Table from './routes/Product/table.js'

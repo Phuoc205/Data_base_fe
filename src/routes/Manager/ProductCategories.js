@@ -39,19 +39,19 @@ function ProductCategories() {
         </div>
       </div>
 
-      <div className="sidebar">
-        <div className="sidebar-section">
+      <div className="mangement-sidebar">
+        <div className="mangement-sidebar-section">
           <h3>Sản phẩm</h3>
-          <Button className="sidebar-item" link="/login/management/product_categories">
+          <Button className="mangement-sidebar-item" link="/login/management/product_categories">
             <span className="icon">🏠︎</span> Danh sách sản phẩm
           </Button>
           <Button className="sidebar-item-choosing" link="/login/management/product_categories">
             <span className="icon">☰ </span> Danh mục sản phẩm
           </Button>
-          <Button className="sidebar-item" link="/units">
+          <Button className="mangement-sidebar-item" link="/units">
             <span className="icon">⌨</span> Đơn vị tính
           </Button>
-          <Button className="sidebar-item" link="/product-stats">
+          <Button className="mangement-sidebar-item" link="/product-stats">
             <span className="icon">🗿</span> Thống kê sản phẩm
           </Button>
         </div>
