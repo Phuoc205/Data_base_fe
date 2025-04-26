@@ -8,7 +8,7 @@ function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [customerId, setCustomerId] = useState(null);
-    const [isAdmin, setIsAdmin] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(true);
     const [name, setName] = useState('');
     const navigate = useNavigate();
 
@@ -71,8 +71,29 @@ function Login() {
         navigate('management')
     }
 
-    if (customerId) {
-        return (
+
+    if(!customerId) {
+
+        // Sửa cho giao diện đẹp
+        if(isAdmin) { // Giao diện cho admin
+            return (
+                <div className="main_screen">
+                    <div className="login_toast log-out-toast">
+                        <div className='say_hello'>
+                            Hello, {name}
+                        </div>
+
+                        <div className='log_out' onClick={handleLogout}>
+                            Log out
+                        </div>
+
+                        <div className='login-back-home' onClick={management}>
+                            Đến quản lý
+                            </div>
+                    </div>
+                </div>
+            )
+        } else return (  // Giao diện cho user
             <div className="main_screen">
                 <div className="login_toast logged_in_screen">
                     <div className="logged_in_hello">
@@ -100,6 +121,7 @@ function Login() {
                     )}
                 </div>
             </div>
+
         );
         // Sửa giao diện đẹp
     } else return (

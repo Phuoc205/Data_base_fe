@@ -162,6 +162,7 @@ input[type="checkbox"] {
     border: none;
     box-shadow: 0px 4px 8px rgba(0,191,255,0.5);
     transition: background 0.3s ease, transform 0.2s ease;
+    
 }
 
 .logged_in_button:hover {
