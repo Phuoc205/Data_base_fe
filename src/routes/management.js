@@ -12,62 +12,62 @@ const Button = ({ className, imgSrc, alt, link, children }) => (
 
 function Manage() {
   return (
-    <div className="header">
-      <div className="head-top">
-        <div className="header-middle-left">
+    <div className="-management-header">
+      <div className="management-head-top">
+        <div className="management-header-middle-left">
           <Button
-            className="button_item img"
+            className="management-button_item img"
             imgSrc={logo}
             alt="Shop Logo"
             link="/"
           />
         </div>
 
-        <div className="nav-buttons">
-          <button className="nav-btn">
-            <span className="icon">🛒</span> Bán hàng
+        <div className="management-nav-buttons">
+          <button className="management-nav-btn">
+            <span className="management-icon">🛒</span> Bán hàng
           </button>
-          <button className="nav-btn">Giao dịch</button>
-          <button className="nav-btn">Sản phẩm</button>
-          <button className="nav-btn">Kho hàng</button>
-          <button className="nav-btn">Báo cáo</button>
+          <button className="management-nav-btn">Giao dịch</button>
+          <button className="management-nav-btn">Sản phẩm</button>
+          <button className="management-nav-btn">Kho hàng</button>
+          <button className="management-nav-btn">Báo cáo</button>
         </div>
 
-        <div className="right-section">
-          <button className="icon-btn">⚙️</button>
-          <button className="icon-btn">🔔</button>
-          <div className="user-info">
-            <span className="username">Quản trị viên</span>
-            <div className="avatar">QT</div>
+        <div className="management-right-section">
+          <button className="management-icon-btn">⚙️</button>
+          <button className="management-icon-btn">🔔</button>
+          <div className="management-user-info">
+            <span className="management-username">Quản trị viên</span>
+            <div className="management-avatar">QT</div>
           </div>
         </div>
       </div>
 
-      <div className="sidebar">
-        <div className="sidebar-section">
+      <div className="management-sidebar">
+        <div className="management-sidebar-section">
           <h3>Sản phẩm</h3>
-          <Button className="sidebar-item" link="/login/management/product_categories">
-            <span className="icon">🏠︎</span> Danh sách sản phẩm
+          <Button className="management-sidebar-item" link="/login/management/product_categories">
+            <span className="management-icon">🏠︎</span> Danh sách sản phẩm
           </Button>
-          <Button className="sidebar-item" link="/login/management/product_categories">
-            <span className="icon">☰ </span> Danh mục sản phẩm
+          <Button className="management-sidebar-item" link="/login/management/product_categories">
+            <span className="management-icon">☰ </span> Danh mục sản phẩm
           </Button>
-          <Button className="sidebar-item" link="/units">
-            <span className="icon">⌨</span> Đơn vị tính
+          <Button className="management-sidebar-item" link="/units">
+            <span className="management-icon">⌨</span> Đơn vị tính
           </Button>
-          <Button className="sidebar-item" link="/product-stats">
-            <span className="icon">🗿</span> Thống kê sản phẩm
+          <Button className="management-sidebar-item" link="/product-stats">
+            <span className="management-icon">🗿</span> Thống kê sản phẩm
           </Button>
         </div>
 
-        <div className="report-section">
+        <div className="management-report-section">
           <h3>Báo cáo</h3>
-          <div className="sidebar-section">
-          <Button className="sidebar-item" link="/login/management/product_categories">
-            <span className="icon"></span> Quý I 2025
+          <div className="management-sidebar-section">
+          <Button className="management-sidebar-item" link="/login/management/product_categories">
+            <span className="management-icon"></span> Quý I 2025
           </Button>
-          <Button className="sidebar-item" link="/login/management/product_categories">
-            <span className="icon"></span> Quý II 2025
+          <Button className="management-sidebar-item" link="/login/management/product_categories">
+            <span className="management-icon"></span> Quý II 2025
           </Button>
         </div>
         </div>

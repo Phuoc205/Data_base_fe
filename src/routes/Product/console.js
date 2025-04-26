@@ -3,7 +3,7 @@ import ProductCard from '../../components/ProductCard/ProductCard.js';
 import Header from '../../components/Header/header';
 import Footer from '../../components/Footer/Footer';
 import Sidebar from '../../components/sidebar/sidebar';
-import '../css/Product/casepc.css'
+import '../css/productitem.css'
 
 function Console(props) {
   const [products, setProducts] = useState([]);

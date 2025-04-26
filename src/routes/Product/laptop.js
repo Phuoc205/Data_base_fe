@@ -3,7 +3,7 @@ import ProductCard from '../../components/ProductCard/ProductCard.js';
 import Header from '../../components/Header/header';
 import Footer from '../../components/Footer/Footer';
 import Sidebar from '../../components/sidebar/sidebar';
-import '../css/Product/casepc.css'
+import '../css/productitem.css'
 
 function Laptop(props) {
   const [products, setProducts] = useState([]);
@@ -44,7 +44,7 @@ function Laptop(props) {
             {selectedProduct ? (
               <div className="product-detail">
                 <h2>{selectedProduct.PRODUCT_NAME}</h2>
-                <img src={selectedProduct.IMAGE_LINK} alt={selectedProduct.PRODUCT_NAME} />
+                <img className = "main-product-image" src={selectedProduct.IMAGE_LINK} alt={selectedProduct.PRODUCT_NAME} />
                 <p>Price: {selectedProduct.PRICE}</p>
                 <p>{selectedProduct.description}</p>
               </div>
