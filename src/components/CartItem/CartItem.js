@@ -43,19 +43,19 @@ function CartItem(props) {
                     {(props.amount * props.price).toLocaleString()}
                     <div className="cart-price-icon-group">
                         <i className="fa-solid fa-heart cart-price-icon"></i>
-                        <i className="fa-solid fa-trash cart-price-icon"></i>
+                        <i className="fa-solid fa-trash cart-price-icon" onClick={props.onDelete}></i>
                     </div>
                 </div>
 
                 <div className="cart-amount-container">
-                    <div className="amount-icon">
+                    <div className="amount-icon" onClick={props.onDecrease}>
                         <i className="fa-solid fa-minus"></i>
                     </div>
                     <div className="amount-number">
                         {props.amount}
                     </div>
-                    <div className="amount-icon">
-                        <i className="fa-solid fa-plus"></i>
+                    <div className="amount-icon" onClick={props.onIncrease}>
+                        <i className="fa-solid fa-plus" ></i>
                     </div>
                 </div>
             </div>
