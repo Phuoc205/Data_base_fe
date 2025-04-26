@@ -1,0 +1,39 @@
+.sidebar_container {
+    width: 260px;
+    background: white;
+    padding: 5px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+a {
+    color: black; /* hoặc bất kỳ màu nào bạn muốn */
+    text-decoration: none; /* nếu muốn bỏ gạch chân luôn */
+}
+
+.sidebar_item {
+    list-style: none;
+    padding-left: 0;
+    margin: 5px 0 20px 0;
+}
+
+.sidebar_item li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    height: 25px;
+    color: #222;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.sidebar-item-mini {
+    display: flex;
+    gap: 8px
+}
+.sidebar-item-mini:hover {
+    color: #007dac;
+}

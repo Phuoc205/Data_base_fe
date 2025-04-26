@@ -1,0 +1,15 @@
+.sidebar {
+    padding-left: 141px;
+}
+
+.sidebar-and-main-product {
+    display: flex;
+    flex-direction: row;
+}
+
+.main-product {
+    background-color: aqua;
+    width: 800px;
+    height: 800px;
+    margin-left: 50px;
+}
