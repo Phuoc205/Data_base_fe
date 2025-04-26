@@ -1,26 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link
-import '../routes/Manager/management.css';
-import logo from '../../public/img/logo_shop.png';
+import './management.css';
+import { Link } from 'react-router-dom';
 
 const Button = ({ className, imgSrc, alt, link, children }) => (
-  <Link to={link} className={className} style={{ textDecoration: 'none' }}>
-    {imgSrc && <img src={imgSrc} alt={alt} />}
-    {children}
-  </Link>
-);
+    <Link to={link} className={className} style={{ textDecoration: 'none' }}>
+      {imgSrc && <img src={imgSrc} alt={alt} />}
+      {children}
+    </Link>
+  );
 
-function Manage() {
+function ProductCategories() {
   return (
     <div className="header">
       <div className="head-top">
         <div className="header-middle-left">
-          <Button
-            className="button_item img"
-            imgSrc={logo}
-            alt="Shop Logo"
-            link="/"
-          />
+          <a href="/" className="button_item img">
+            <img src="/img/logo_shop.png" alt="Shop Logo" />
+          </a>
         </div>
 
         <div className="nav-buttons">
@@ -49,7 +45,7 @@ function Manage() {
           <Button className="sidebar-item" link="/login/management/product_categories">
             <span className="icon">🏠︎</span> Danh sách sản phẩm
           </Button>
-          <Button className="sidebar-item" link="/login/management/product_categories">
+          <Button className="sidebar-item-choosing" link="/login/management/product_categories">
             <span className="icon">☰ </span> Danh mục sản phẩm
           </Button>
           <Button className="sidebar-item" link="/units">
@@ -62,18 +58,26 @@ function Manage() {
 
         <div className="report-section">
           <h3>Báo cáo</h3>
-          <div className="sidebar-section">
-          <Button className="sidebar-item" link="/login/management/product_categories">
-            <span className="icon"></span> Quý I 2025
-          </Button>
-          <Button className="sidebar-item" link="/login/management/product_categories">
-            <span className="icon"></span> Quý II 2025
-          </Button>
         </div>
+      </div>
+
+      <div className="main-content">
+        <h2>Danh mục sản phẩm</h2>
+        <div className="filter-section">
+          <input type="text" placeholder="Tìm kiếm danh mục..." className="search-input" />
+          <button className="filter-btn">Lọc theo điều kiện</button>
+        </div>
+        <div className="action-buttons">
+          <button className="add-btn">+ Thêm mới danh mục</button>
+          <button className="export-btn">Thoát excel</button>
+        </div>
+        <div className="empty-state">
+          <img src="/img/empty-state.png" alt="Empty State" className="empty-image" />
+          <p>Hiện tại hệ thống chưa có danh mục nào. Bạn cần thêm danh mục mới để quản lý một cách hiệu quả!</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default Manage;
+export default ProductCategories;

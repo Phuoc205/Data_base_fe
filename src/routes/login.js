@@ -8,7 +8,7 @@ function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [customerId, setCustomerId] = useState(null);
-    const [isAdmin, setIsAdmin] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(true);
     const [name, setName] = useState('');
     const navigate = useNavigate();
     
@@ -71,7 +71,7 @@ function Login() {
         navigate('management')
     }
 
-    if(customerId) {
+    if(!customerId) {
 
         // Sửa cho giao diện đẹp
         if(isAdmin) { // Giao diện cho admin
@@ -88,7 +88,7 @@ function Login() {
 
                         <div className='login-back-home' onClick={management}>
                             Đến quản lý
-                        </div>
+                            </div>
                     </div>
                 </div>
             )
@@ -108,8 +108,7 @@ function Login() {
                 </div>
             </div>
         )
-        // Sửa giao diện đẹp
-    } else return (
+} else return (
         <div className="main_screen">
             <div className="login_toast">
                 <div className="login_header">
@@ -117,7 +116,7 @@ function Login() {
                 </div>
                 <div className='login_content'>
                     <div className='login_content_item'>
-                        <div className='login_content_item_name'>Email:</div>
+                        <div className='login_content_item_name'>Tên đăng nhập:</div>
                         <div className='login_content_item_input'>
                             <input 
                                 type='text' 
@@ -130,7 +129,7 @@ function Login() {
                         </div>
                     </div>
                     <div className='login_content_item'>
-                        <div className='login_content_item_name'>Password:</div>
+                        <div className='login_content_item_name'>Mật khẩu:</div>
                         <div className='login_content_item_input'>
                             <input 
                                 type='text' 
@@ -148,16 +147,16 @@ function Login() {
                         <div className="remember_passwword_check"><input 
                             type="checkbox"
                         /></div>
-                        Remember me
+                        Ghi nhớ đăng nhập
                     </div>
-                    <div>Forgot password</div>
+                    <div>Quên mật khẩu</div>
                 </div>
 
                 <div className='login_Submit' onClick={handleLogin}>
-                    Log in
+                    Đăng nhập
                 </div>
 
-                <div>Don't have an account ? <a href='/signup'> Register here</a> </div>
+                <div>Bạn chưa có tài khoản ? <a href='/signup'> Đăng kí ngay</a> </div>
             </div>
         </div>
     );

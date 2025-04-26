@@ -6,6 +6,7 @@ import Cart from './routes/cart.js'
 import Introduction from './routes/Info.js'
 import Test from './routes/test.js'
 
+
 import Laptop from './routes/Product/laptop.js'
 import CasePC from './routes/Product/casepc.js'
 import Table from './routes/Product/table.js'
@@ -16,10 +17,13 @@ import Headphones from './routes/Product/headphones.js'
 import Keyboard from './routes/Product/keyboard.js'
 import Mouse from './routes/Product/mouse.js'
 
+import Manage from './routes/management.js'
+import ProductCategories from './routes/Manager/ProductCategories.js'
 function App() {
   return(
     <BrowserRouter>
       <Routes>
+
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />}/>
@@ -34,6 +38,9 @@ function App() {
         <Route path="/headphones" element={<Headphones/>}/>
         <Route path="/keyboard" element={<Keyboard/>}/>
         <Route path="/mouse" element={<Mouse/>}/>
+
+        <Route path="/login/management/product_categories" element={<ProductCategories />} />
+        <Route path="/login/management" element={<Manage />} />
       </Routes>
     </BrowserRouter>
   )

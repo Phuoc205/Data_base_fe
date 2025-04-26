@@ -1,0 +1,361 @@
+css
+
+Copy
+/* General Font Setup */
+body {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Header Container */
+.header {
+  width: 100vw;
+}
+
+.head-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 50px);
+  padding: 20px;
+  background-color: #2e7d32;
+  color: #ffffff;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 100;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.head-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  height: 70px;
+  background-color: #f5f7fa;
+  color: #333;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  z-index: 200;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo-shop {
+  height: 100%;
+  width: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-shop:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header-middle-left {
+  padding-left: 50px;
+}
+
+/* Button Item (Logo Container) */
+.button_item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.button_item:hover {
+  background-color: #e5e7eb;
+}
+
+.button_item img {
+  padding-left: 0;
+  max-height: 60px;
+  width: auto;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+  display: flex;
+  padding-right: 300px; /* Reduced from 500px to shift the frame left */
+  margin-left: 20px; /* Added to move the frame closer to the logo */
+  gap: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 5px 10px;
+  background-color: #ffffff;
+}
+
+.nav-buttons .nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #374151;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-buttons .nav-btn:hover {
+  background-color: #dadadd;
+  color: #ffffff;
+}
+
+.nav-buttons .nav-btn .icon {
+  font-size: 18px;
+}
+
+/* Right Section */
+.right-section {
+  padding-right: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Icon Buttons (Settings, Notifications) */
+.icon-btn {
+  background: none;
+  border: none;
+  color: #4b5563;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+/* User Info */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-info .username {
+  font-size: 15px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.user-info .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #374151;
+  border: 2px solid #e5e7eb;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 70px);
+  background-color: #00b768;
+  color: #252222;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 100;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-section {
+  margin-bottom: 24px;
+}
+
+.sidebar-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  color: #e0e0e0;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: #ffffff; /* Đảm bảo chữ màu trắng */
+}
+
+.sidebar-item-choosing{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: #00b768; /* Đảm bảo chữ màu trắng */
+  background-color: #efecec;
+}
+
+.sidebar-item:hover {
+  background-color: #efecec; /* Màu nền trắng */
+  color: #00b768; /* Khi hover, chữ đổi thành xanh */
+  transform: translateX(4px);
+}
+
+.sidebar-item .icon {
+  font-size: 18px;
+}
+
+/* Report Section */
+.report-section {
+  margin-top: 30px;
+}
+
+.report-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  color: #e0e0e0;
+  letter-spacing: 0.5px;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 250px; /* Đẩy nội dung sang phải để không đè lên sidebar */
+  padding: 90px 20px 20px; /* Khoảng cách trên để không đè lên header */
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.main-content h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Filter Section */
+.filter-section {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.filter-btn {
+  padding: 10px 16px;
+  background-color: #00b768; /* Dark green */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: #025a34; /* Darker shade of green */
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.add-btn,
+.export-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn {
+  background-color: #00b768; /* Dark green */
+  color: #ffffff;
+}
+
+.add-btn:hover {
+  background-color: #025a34; /* Darker shade of green */
+}
+
+.export-btn {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.export-btn:hover {
+  background-color: #a2a5a9;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.empty-image {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.empty-state p {
+  font-size: 15px;
+  color: #666;
+  text-align: center;
+  max-width: 400px;
+}
