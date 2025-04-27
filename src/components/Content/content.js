@@ -27,7 +27,7 @@ useEffect(() => {
 
     const fetchProductBestSeller = async () => {
         try {
-            const response = await fetch('http://localhost:3000/productsBestseller');
+            const response = await fetch('http://localhost:3000/productsBestSeller');
             const data = await response.json();
             
             if (data.success) {
@@ -42,6 +42,7 @@ useEffect(() => {
     };
 
     fetchProduct();
+    fetchProductBestSeller();
 }, []);
 
     return (

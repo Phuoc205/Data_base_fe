@@ -3,7 +3,7 @@ import ProductCard from '../../components/ProductCard/ProductCard.js';
 import Header from '../../components/Header/header';
 import Footer from '../../components/Footer/Footer';
 import Sidebar from '../../components/sidebar/sidebar';
-import '../css/Product/casepc.css'
+import '../css/productitem.css'
 
 function Monitor(props) {
   const [products, setProducts] = useState([]);
@@ -33,20 +33,31 @@ function Monitor(props) {
 
   return (
     <div>
-      <Header/>
-      <div>
-        <div className='sidebar-and-main-product'>
-          <div className='sidebar'>
-            <Sidebar/>
+      <Header />
+      <div className='product-container'>
+        <div className="sidebar-and-main-product">
+          <div className="sidebar">
+            <Sidebar />
           </div>
-            
+
           <div className="main-product">
             {selectedProduct ? (
               <div className="product-detail">
-                <h2>{selectedProduct.PRODUCT_NAME}</h2>
                 <img src={selectedProduct.IMAGE_LINK} alt={selectedProduct.PRODUCT_NAME} />
-                <p>Price: {selectedProduct.PRICE}</p>
-                <p>{selectedProduct.description}</p>
+                <div className="products-info">
+                <div className="main-products-detail">
+                    <h2>{selectedProduct.PRODUCT_NAME}</h2>
+                    <h3>Price: {selectedProduct.PRICE}</h3>
+                    <p>Made by: {selectedProduct.MANUFACTURE}</p>
+                    <p>Dimension: {selectedProduct.DIMENSION}</p>
+                    <p>Resolution: {selectedProduct.RESOLUTION}</p>
+                    <p>Ratio: {selectedProduct.SCREEN_RATIO}</p>
+                    <p>Brightness: {selectedProduct.BRIGHTNESS}</p>
+                    <p>Screen type: {selectedProduct.TYPE_SCREEN}</p>
+                    <p>Weight: {selectedProduct.WEIGHT}</p>
+                  </div>
+                  <p>{selectedProduct.description}</p>
+                </div>
               </div>
             ) : (
               <p>Select a product to see details</p>
@@ -71,7 +82,7 @@ function Monitor(props) {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
