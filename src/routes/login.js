@@ -2,7 +2,7 @@ import React from 'react';
 // import '../Button/button'
 import './css/login.css'
 import { useState, useEffect } from 'react';
-import { useNavigate, Outlet } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -100,7 +100,6 @@ function Login() {
                         </>
                     )}
                 </div>
-                <Outlet />
             </div>
 
         );
