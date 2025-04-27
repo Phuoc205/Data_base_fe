@@ -58,6 +58,14 @@ function ProductCategories() {
 
         <div className="management-report-section">
           <h3>Báo cáo</h3>
+          <div className="management-sidebar-section">
+          <Button className="management-sidebar-item" link="https://vneconomy.vn/cap-nhat-loi-nhuan-quy-1-2025-161-doanh-nghiep-cong-bo-tang-21-6-ngan-hang-va-chung-khoan-dan-dau.htm">
+            <span className="management-icon"></span> Quý I 2025
+          </Button>
+          <Button className="management-sidebar-item" link="https://finance.vietstock.vn/ket-qua-kinh-doanh">
+            <span className="management-icon"></span> Quý II 2025
+          </Button>
+        </div>
         </div>
       </div>
 
