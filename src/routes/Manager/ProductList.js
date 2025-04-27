@@ -1,16 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Manager_Header from './Manager_Header.js';
 import Manager_Sidebar from './Manager_Sidebar.js';
 import empty from '../../../public/img/empty_state.png';
 
 function ProductList() {
+  
+  const [products, setProducts] = useState([]);
+
+  const fetchProductList = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/products-list');
+      const data = await response.json();
+
+      if (data.success) {
+        const normalizedProducts = normalizeProductsManagement(data.products);
+        setProducts(normalizedProducts); // dùng dữ liệu đã chuẩn hóa
+      } else {
+        alert('Không lấy được danh sách sản phẩm!');
+      }
+    } catch (err) {
+      console.error('Lỗi lấy sản phẩm:', err);
+      alert('Có lỗi xảy ra khi tải sản phẩm!');
+    }
+  };
+
+  const categoryMap = {
+    0: 'Laptop',
+    1: 'Chuột',
+    2: 'Bàn phím',
+    3: 'Màn hình',
+    4: 'Tai nghe',
+    5: 'Case',
+    6: 'Quạt laptop',
+    7: 'Tay cầm',
+    8: 'Bàn ghế'
+  };
+
+  function normalizeProductsManagement(items) {
+    return items.map(item => ({
+      id: item.PRODUCT_ID || item.product_id || '',
+      name: item.PRODUCT_NAME || item.info || '',
+      price: Number(item.PRICE || item.price || 0),
+      category: categoryMap[item.CATEGORY_ID ?? item.category] || 'Khác',
+      stock: item.IN_STOCK || item.instock || 0,
+    }));
+  }
+
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [importQuantity, setImportQuantity] = useState(1);
-  const [products, setProducts] = useState([
-    { id: 1, name: 'Sản phẩm A', category: 'Danh mục 1', price: 50000, stock: 10 },
-    { id: 2, name: 'Sản phẩm B', category: 'Danh mục 2', price: 75000, stock: 0 },
-    { id: 3, name: 'Sản phẩm C', category: 'Danh mục 1', price: 120000, stock: 5 },
-  ]);
+
 
   const totalProducts = products.length;
   const totalStock = products.reduce((sum, product) => sum + Number(product.stock), 0);
@@ -19,6 +57,12 @@ function ProductList() {
     (sum, product) => sum + Number(product.price) * Number(product.stock),
     0
   );
+
+
+  useEffect(() => {
+    fetchProductList();
+  }, []);
+
   const handleOpenImport = (product) => {
     setSelectedProduct(product);
     setImportQuantity(1);
@@ -33,6 +77,7 @@ function ProductList() {
     );
     setSelectedProduct(null); // đóng modal sau khi nhập
   };
+
   return (
     <div>
       <Manager_Header />
