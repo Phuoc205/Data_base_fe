@@ -1,5 +1,5 @@
 import React from 'react' // nạp thư viện react
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter as BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from './routes/login.js'
 import Homepage from './routes/homepage.js'
 import Cart from './routes/cart.js'
@@ -19,6 +19,9 @@ import Mouse from './routes/Product/mouse.js'
 
 import Manage from './routes/management.js'
 import ProductCategories from './routes/Manager/ProductCategories.js'
+import Unit from './routes/Manager/Unit.js'
+import ProductList from './routes/Manager/ProductList.js'
+import ProductStat from './routes/Manager/ProductStat.js'
 function App() {
   return(
     <BrowserRouter>
@@ -41,6 +44,9 @@ function App() {
 
         <Route path="/login/management/product_categories" element={<ProductCategories />} />
         <Route path="/login/management" element={<Manage />} />
+        <Route path="/login/management/units" element={<Unit />} />
+        <Route path="/login/management/product_list" element={<ProductList />} />
+        <Route path="/login/management/product_stat" element={<ProductStat />} />
       </Routes>
     </BrowserRouter>
   )
