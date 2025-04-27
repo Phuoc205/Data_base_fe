@@ -3,7 +3,7 @@ import ProductCard from '../../components/ProductCard/ProductCard.js';
 import Header from '../../components/Header/header';
 import Footer from '../../components/Footer/Footer';
 import Sidebar from '../../components/sidebar/sidebar';
-import '../css/Product/casepc.css'
+import '../css/productitem.css'
 
 function CasePC(props) {
   const [products, setProducts] = useState([]);
@@ -12,7 +12,7 @@ function CasePC(props) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:3000/products/casepc');
+        const response = await fetch('http://localhost:3000/products/casepc');// Sửa 
         const data = await response.json();
         setProducts(data);
         console.log(data);
@@ -33,27 +33,30 @@ function CasePC(props) {
 
   return (
     <div>
-      <Header/>
-      <div>
-        <div className='sidebar-and-main-product'>
-          <div className='sidebar'>
-            <Sidebar/>
+      <Header />
+      <div className='product-container'>
+        <div className="sidebar-and-main-product">
+          <div className="sidebar">
+            <Sidebar />
           </div>
-            
+
           <div className="main-product">
             {selectedProduct ? (
               <div className="product-detail">
-                <h2>{selectedProduct.PRODUCT_NAME}</h2>
                 <img src={selectedProduct.IMAGE_LINK} alt={selectedProduct.PRODUCT_NAME} />
-                <p>Price: {selectedProduct.PRICE}</p>
-                <p>Provider: {selectedProduct.MANUFACTURE}</p>
-                <p>Case type: {selectedProduct.CASE_TYPE}</p>
-                <p>Number of ports: {selectedProduct.NUM_PORTS}</p>
-                <p>Connection Port: {selectedProduct.CONNECTION_PORTS}</p>
-                <p>Material: {selectedProduct.MATERIAL}</p>
-                <p>Color: {selectedProduct.COLOR}</p>
-                <p>Dimension: {selectedProduct.DIMENSION}</p>
-                <p>Main board size: {selectedProduct.MBOARD_SIZE}</p>
+                <div className="products-info">
+                  <div className="main-products-detail">
+                    <h2>{selectedProduct.PRODUCT_NAME}</h2>
+                    <h3>Price: {selectedProduct.PRICE}</h3>
+                    <p>Made by: {selectedProduct.MANUFACTURE}</p>
+                    <p>Case type: {selectedProduct.CASE_TYPE}</p>
+                    <p>Connection: {selectedProduct.CONNECTION_PORTS}</p>
+                    <p>Material: {selectedProduct.MATERIAL}</p>
+                    <p>Dimension: {selectedProduct.DIMENSION}</p>
+                    <p>Fan: {selectedProduct.FANS}</p>
+                  </div>
+                  <p>{selectedProduct.description}</p>
+                </div>
               </div>
             ) : (
               <p>Select a product to see details</p>
@@ -78,7 +81,7 @@ function CasePC(props) {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

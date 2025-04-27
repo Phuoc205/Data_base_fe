@@ -3,7 +3,7 @@ import ProductCard from '../../components/ProductCard/ProductCard.js';
 import Header from '../../components/Header/header';
 import Footer from '../../components/Footer/Footer';
 import Sidebar from '../../components/sidebar/sidebar';
-import '../css/Product/casepc.css'
+import '../css/productitem.css';
 
 function Laptop(props) {
   const [products, setProducts] = useState([]);
@@ -33,20 +33,30 @@ function Laptop(props) {
 
   return (
     <div>
-      <Header/>
-      <div>
-        <div className='sidebar-and-main-product'>
-          <div className='sidebar'>
-            <Sidebar/>
+      <Header />
+      <div className='product-container'>
+        <div className="sidebar-and-main-product">
+          <div className="sidebar">
+            <Sidebar />
           </div>
-            
+
           <div className="main-product">
             {selectedProduct ? (
               <div className="product-detail">
-                <h2>{selectedProduct.PRODUCT_NAME}</h2>
                 <img src={selectedProduct.IMAGE_LINK} alt={selectedProduct.PRODUCT_NAME} />
-                <p>Price: {selectedProduct.PRICE}</p>
-                <p>{selectedProduct.description}</p>
+                <div className="products-info">
+                  <div className="main-products-detail">
+                    <h2>{selectedProduct.PRODUCT_NAME}</h2>
+                    <h3>Price: {selectedProduct.PRICE}</h3>
+                    <p>Made by: {selectedProduct.MANUFACTURE}</p>
+                    <p>CPU: {selectedProduct.CPU}</p>
+                    <p>Operating system: {selectedProduct.OS}</p>
+                    <p>Screen resolution: {selectedProduct.SCREEN_RESOLUTION}</p>
+                    <p>RAM: {selectedProduct.MAX_RAM}</p>
+                    <p>Storage: {selectedProduct.STORAGE}</p>
+                  </div>
+                  <p>{selectedProduct.description}</p>
+                </div>
               </div>
             ) : (
               <p>Select a product to see details</p>
@@ -71,9 +81,8 @@ function Laptop(props) {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
-
 export default Laptop;
