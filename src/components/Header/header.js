@@ -76,9 +76,6 @@ function Header() {
                 </div>
 
                 <div className="header_bottom_side">
-                    {/* <button className="header_bottom_button_item hotline"><i className="fa-solid fa-phone"></i>19001665</button>
-                    <button className="header_bottom_button_item cart"><i className="fa-solid fa-cart-shopping"></i>Giỏ hàng</button>
-                    <button className="header_bottom_button_item account"><i className="fa-solid fa-user"></i> Tài khoản</button> */}
                     <Button
                         className="header-bottom-button-right hotline" 
                         icon={<i className="fa-solid fa-phone"></i>}
