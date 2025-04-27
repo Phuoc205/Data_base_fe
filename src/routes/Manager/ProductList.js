@@ -67,15 +67,38 @@ function ProductList() {
     setSelectedProduct(product);
     setImportQuantity(1);
   };
-  const handleConfirmImport = () => {
-    setProducts(prevProducts =>
-      prevProducts.map(product =>
-        product.id === selectedProduct.id
-          ? { ...product, stock: Number(product.stock) + importQuantity }
-          : product
-      )
-    );
-    setSelectedProduct(null); // đóng modal sau khi nhập
+
+  const handleConfirmImport = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/import-product', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          productId: selectedProduct.id,
+          quantity: importQuantity
+        })
+      });
+      
+      const data = await response.json();
+  
+      if (data.success) {
+        setProducts(prevProducts =>
+          prevProducts.map(product =>
+            product.id === selectedProduct.id
+              ? { ...product, stock: Number(product.stock) + importQuantity }
+              : product
+          )
+        );
+        setSelectedProduct(null);
+      } else {
+        alert('Cập nhật thất bại!');
+      }
+    } catch (err) {
+      console.error('Lỗi khi nhập hàng:', err);
+      alert('Đã có lỗi xảy ra khi gửi yêu cầu nhập hàng!');
+    }
   };
 
   return (
