@@ -2,7 +2,7 @@ import React from 'react';
 // import '../Button/button'
 import './css/login.css'
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Outlet } from 'react-router-dom'
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -60,7 +60,8 @@ function Login() {
         localStorage.removeItem('customer_id');
         localStorage.removeItem('name');
         localStorage.removeItem('isAdmin');
-        window.location.href = '/login';
+        setCustomerId(null);
+        navigate('/login');
     };
 
     const backHome = () => {
@@ -99,6 +100,7 @@ function Login() {
                         </>
                     )}
                 </div>
+                <Outlet />
             </div>
 
         );
@@ -127,7 +129,7 @@ function Login() {
                         <div className='login_content_item_name'>Mật khẩu:</div>
                         <div className='login_content_item_input'>
                             <input
-                                type='text'
+                                type='password'
                                 className='login_content_item_input_input' id='login_password'
                                 placeholder='Nhập mật khẩu'
                                 value={password}
