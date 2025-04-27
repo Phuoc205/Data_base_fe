@@ -1,59 +1,68 @@
-.sidebar-and-main-product {
-    display: flex;
-  }
-  
-  .sidebar {
-    width: 260px;
-    flex-shrink: 0;
-  }
-  
-  .main-product {
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    margin-left: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
 
-  
-  .product-detail {
-    text-align: center;
-  }
-  
-  .product-detail img {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-    margin: 20px 0;
-    border-radius: 10px;
-  }
-  
-  .product-detail h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  .product-detail p {
-    font-size: 18px;
-    color: #555;
-  }
-  
-  .list-product {
-    margin-top: 40px;
-    padding: 0 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .list-product > div {
-    width: 220px;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .list-product > div:hover {
-    transform: translateY(-5px);
-  }
-  
+.sidebar {
+  padding-left: 141px;
+}
+
+.sidebar-and-main-product {
+  display: flex;
+  flex-direction: row;
+}
+.product-container{
+  background: linear-gradient(to bottom, #3db9e5, white);
+}
+
+.main-product {
+  /* background-color:#f0fbff; */
+  background-color: #fff;
+  flex: 1;
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-right: 30px;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 290px;
+  display: flex;
+  align-items: center;
+}
+.product-detail img {
+  width: 350px;
+  height: 350px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.product-detail {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.products-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.main-product-detail{
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.main-product-detail h2 {
+  font-size: 24px;
+  margin: 0;
+}
+.main-product-detail p {
+  font-size: 18px;
+}
+
+.list-product {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+

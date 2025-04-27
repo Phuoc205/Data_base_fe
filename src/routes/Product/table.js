@@ -33,20 +33,28 @@ function Table(props) {
 
   return (
     <div>
-      <Header/>
-      <div>
-        <div className='sidebar-and-main-product'>
-          <div className='sidebar'>
-            <Sidebar/>
+      <Header />
+      <div className='product-container'>
+        <div className="sidebar-and-main-product">
+          <div className="sidebar">
+            <Sidebar />
           </div>
-            
+
           <div className="main-product">
             {selectedProduct ? (
               <div className="product-detail">
-                <h2>{selectedProduct.PRODUCT_NAME}</h2>
                 <img src={selectedProduct.IMAGE_LINK} alt={selectedProduct.PRODUCT_NAME} />
-                <p>Price: {selectedProduct.PRICE}</p>
-                <p>{selectedProduct.description}</p>
+                <div className="products-info">
+                <div className="main-products-detail">
+                    <h2>{selectedProduct.PRODUCT_NAME}</h2>
+                    <h3>Price: {selectedProduct.PRICE}</h3>
+                    <p>Made by: {selectedProduct.MANUFACTURE}</p>
+                    <p>Material: {selectedProduct.MATERIAL}</p>
+                    <p>Dimension: {selectedProduct.DIMENSION}</p>
+                    <p>Color: {selectedProduct.COLOR}</p>
+                  </div>
+                  <p>{selectedProduct.description}</p>
+                </div>
               </div>
             ) : (
               <p>Select a product to see details</p>
@@ -71,7 +79,7 @@ function Table(props) {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
