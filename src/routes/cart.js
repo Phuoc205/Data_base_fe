@@ -114,8 +114,8 @@ function Cart() {
             const data = await response.json();
             if (data.success) {
                 alert('Xóa thành công!');
-                // Cập nhật lại danh sách cart (có thể gọi lại API lấy cart mới hoặc xóa trên state)
-                fetchCart(); // hoặc filter lại products
+                // 👉 Xóa thẳng trên local state:
+                setCartItems(prevItems => prevItems.filter(item => item.product_id !== product_id));
             } else {
                 alert('Xóa thất bại!');
             }
@@ -123,7 +123,64 @@ function Cart() {
             console.error('Lỗi xóa sản phẩm:', err);
             alert('Có lỗi xảy ra, thử lại sau!');
         }
-    };    
+    };
+
+    const fetchCart = () => {
+        const customerID = localStorage.getItem('customer_id');
+        if (!customerID) return;
+    
+        fetch(`http://localhost:3000/cart?customer_id=${customerID}`)
+            .then(res => res.json())
+            .then(data => {
+                const normalized = normalizeCartItems(data.items);
+                setCartItems(normalized);
+                setUserInfo(data.user);
+            })
+            .catch(err => console.error('Lỗi khi fetch giỏ hàng:', err));
+    };
+
+    const handleCheckout = async () => {
+        const customer_id = localStorage.getItem('customer_id');
+        if (!customer_id) {
+            alert('Bạn cần đăng nhập để thanh toán!');
+            return;
+        }
+    
+        const selectedItems = cartItems.filter(item => item.checked);
+        if (selectedItems.length === 0) {
+            alert('Bạn chưa chọn sản phẩm nào để thanh toán!');
+            return;
+        }
+    
+        if (!window.confirm('Bạn chắc chắn muốn thanh toán những sản phẩm đã chọn?')) {
+            return;
+        }
+    
+        try {
+            const response = await fetch('http://localhost:3000/cart/checkout', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    customer_id,
+                    items: selectedItems.map(item => ({
+                        product_id: item.product_id,
+                        amount: item.amount
+                    }))
+                })
+            });
+    
+            const data = await response.json();
+            if (data.success) {
+                alert('Thanh toán thành công!');
+                fetchCart(); // cập nhật lại giỏ hàng sau thanh toán
+            } else {
+                alert('Thanh toán thất bại!');
+            }
+        } catch (err) {
+            console.error('Lỗi khi thanh toán:', err);
+            alert('Có lỗi xảy ra, thử lại sau!');
+        }
+    };
 
     const totalPrice = cartItems.reduce((total, item) => {
         return item.checked ? total + item.amount * item.price : total;
@@ -149,10 +206,24 @@ function Cart() {
                     <CartList items={cartItems} onCheck={handleItemCheck} onIncrease={handleIncreaseAmount} onDecrease={handleDecreaseAmount} onDelete={handleDelete}/>
                 </div>
 
-                <div className='total-price'>
-                    <p><strong>Người nhận:</strong> {userInfo.NAME}</p>
-                    <p><strong>Địa chỉ:</strong> {userInfo.ADDRESS}</p>
-                    <p><strong>Tổng tiền:</strong> {totalPrice.toLocaleString()} VNĐ</p>
+                <div className="total-price">
+                    <h2>Thông Tin Đơn Hàng</h2>
+                    <div className="info-row">
+                        <span>Người nhận:</span>
+                        <strong>{userInfo.NAME}</strong>
+                    </div>
+                    <div className="info-row">
+                        <span>Địa chỉ:</span>
+                        <strong>{userInfo.ADDRESS}</strong>
+                    </div>
+                    <div className="info-row total">
+                        <span>Tổng tiền:</span>
+                        <strong>{totalPrice.toLocaleString()} VNĐ</strong>
+                    </div>
+
+                    <button className="checkout-button" onClick={handleCheckout}>
+                        Thanh Toán
+                    </button>
                 </div>
             </main>
         </div>

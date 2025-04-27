@@ -11,7 +11,7 @@ function CartList({ items, onCheck, onIncrease, onDecrease, onDelete }) {
                     onCheck={() => onCheck(index)}
                     onIncrease={() => onIncrease(index)}
                     onDecrease={() => onDecrease(index)}
-                    onDelete={() => onDelete(index)}
+                    onDelete={() => onDelete(item.product_id)}
                 />
             ))}
         </div>
