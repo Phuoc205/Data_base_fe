@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Manager_Header from './Manager_Header.js';
 import Manager_Sidebar from './Manager_Sidebar.js';
+import empty from '../../../public/img/empty_state.png';
 
 function ProductList() {
+  
   const [products, setProducts] = useState([]);
 
   const fetchProductList = async () => {
@@ -44,6 +46,10 @@ function ProductList() {
     }));
   }
 
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [importQuantity, setImportQuantity] = useState(1);
+
+
   const totalProducts = products.length;
   const totalStock = products.reduce((sum, product) => sum + Number(product.stock), 0);
   const outOfStockProducts = products.filter((product) => Number(product.stock) === 0).length;
@@ -52,9 +58,25 @@ function ProductList() {
     0
   );
 
+
   useEffect(() => {
     fetchProductList();
   }, []);
+
+  const handleOpenImport = (product) => {
+    setSelectedProduct(product);
+    setImportQuantity(1);
+  };
+  const handleConfirmImport = () => {
+    setProducts(prevProducts =>
+      prevProducts.map(product =>
+        product.id === selectedProduct.id
+          ? { ...product, stock: Number(product.stock) + importQuantity }
+          : product
+      )
+    );
+    setSelectedProduct(null); // đóng modal sau khi nhập
+  };
 
   return (
     <div>
@@ -94,6 +116,7 @@ function ProductList() {
                   <th>Danh mục</th>
                   <th>Giá</th>
                   <th>Tồn kho</th>
+                  <th>Nhập hàng</th>
                 </tr>
               </thead>
               <tbody>
@@ -104,6 +127,10 @@ function ProductList() {
                     <td>{product.category}</td>
                     <td>{Number(product.price).toLocaleString()} VNĐ</td>
                     <td>{product.stock}</td>
+                    <td style={{ textAlign: "left" }}>
+                    <button   className="management-action-btn"   onClick={() => handleOpenImport(product)} > Nhập 
+                    </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -112,7 +139,7 @@ function ProductList() {
         ) : (
           <div className="management-empty-state">
             <img
-              src="/img/empty-state.png"
+              src={empty}
               alt="Empty State"
               className="management-empty-image"
             />
@@ -122,7 +149,43 @@ function ProductList() {
           </div>
         )}
       </div>
+      {selectedProduct && (
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <h3>Nhập thêm sản phẩm</h3>
+        <p><strong>Tên:</strong> {selectedProduct.name}</p>
+        <p><strong>Giá:</strong> {Number(selectedProduct.price).toLocaleString()} VNĐ</p>
+        
+        <label>
+          Số lượng cần nhập:
+          <input
+            type="number"
+            min="1"
+            value={importQuantity}
+            onChange={(e) => setImportQuantity(Number(e.target.value))}
+            className="import-quantity-input"
+          />
+        </label>
+        
+        <div className="modal-buttons">
+          <button
+            onClick={handleConfirmImport}
+            className="modal-confirm-btn"
+          >
+            Xác nhận
+          </button>
+          <button
+            onClick={() => setSelectedProduct(null)}
+            className="modal-cancel-btn"
+          >
+            Huỷ
+          </button>
+        </div>
+      </div>
     </div>
+  )}
+    </div>
+    
   );
 }
 

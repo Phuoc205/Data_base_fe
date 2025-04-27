@@ -169,7 +169,7 @@ function ProductCategories() {
         ) : (
           <div className="management-empty-state">
               <img
-                src={empty}
+                src="/img/empty_state.png"
                 alt="Empty State"
                  className="management-empty-image"
               />
