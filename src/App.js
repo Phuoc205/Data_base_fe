@@ -1,3 +1,4 @@
+
 // import React from 'react' // nạp thư viện react
 // import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // import Login from './routes/login.js'
@@ -66,11 +67,14 @@ import Headphones from './routes/Product/headphones.js';
 import Keyboard from './routes/Product/keyboard.js';
 import Mouse from './routes/Product/mouse.js';
 
+
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
+
         <Route path="/login" element={<Login />}>
           <Route path="management" element={<Manage />}>
             <Route path="product_categories" element={<ProductCategories />} />

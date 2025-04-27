@@ -1,4 +1,4 @@
-/* General Font Setup */
+
 body {
   font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
   font-size: 16px;
@@ -75,7 +75,8 @@ body {
 }
 
 .management-button_item:hover {
-  background-color: #e5e7eb;
+  transform: scale(0.8);
+  background-color: #b8b9bb;
 }
 
 .management-button_item img {
@@ -138,11 +139,21 @@ body {
   padding: 8px;
   border-radius: 50%;
   transition: all 0.3s ease;
+  position: relative; /* Ensure notification count positions correctly */
 }
 
 .management-icon-btn:hover {
   background-color: #e5e7eb;
   color: #1f2937;
+}
+
+/* Red Bell Icon When Notifications Exist */
+.management-icon-btn.has-notifications {
+  color: #ef4444; /* Red color for bell icon */
+}
+
+body.dark .management-icon-btn.has-notifications {
+  color: #f87171; /* Lighter red for dark mode */
 }
 
 /* User Info */
@@ -169,9 +180,9 @@ body {
   font-size: 15px;
   font-weight: 600;
   color: #374151;
-  border: 2px solid #000000; /* Circular border for avatar */
+  border: 2px solid #000000;
   box-sizing: border-box;
-  overflow: hidden; /* Ensure image doesn't overflow */
+  overflow: hidden;
 }
 
 /* Avatar Image */
@@ -179,7 +190,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  object-fit: cover; /* Ensure image fits without distortion */
+  object-fit: cover;
 }
 
 /* Sidebar Styles */
@@ -407,7 +418,7 @@ body.dark .management-user-info .management-username {
 body.dark .management-user-info .management-avatar {
   background-color: #6b7280;
   color: #e5e7eb;
-  border: 2px solid #cccccc; /* Circular border for avatar in dark mode */
+  border: 2px solid #cccccc;
 }
 
 /* Modal Styles */
@@ -483,6 +494,7 @@ body.dark .modal-section input {
 .theme-toggle-btn {
   background-color: #00b768;
   color: #ffffff;
+  margin-top: 10px;
   margin-left: 10px;
 }
 
@@ -539,4 +551,227 @@ body.dark .modal-close-btn:hover {
 
 body.dark .notification-item {
   border-bottom-color: #6b7280;
+}
+
+.management-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.management-table th,
+.management-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.management-table th {
+  background-color: #f5f7fa;
+  font-weight: 600;
+  color: #374151;
+}
+
+body.dark .management-table {
+  background-color: #374151;
+  color: #e5e7eb;
+}
+
+body.dark .management-table th {
+  background-color: #4b5563;
+  color: #e5e7eb;
+}
+
+body.dark .management-table td {
+  border-bottom-color: #6b7280;
+}
+
+.management-action-btn {
+  padding: 8px 12px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.management-action-btn:first-child {
+  background-color: #00b768;
+  color: #ffffff;
+}
+
+.management-action-btn:first-child:hover {
+  background-color: #025a34;
+}
+
+.management-action-btn:last-child {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.management-action-btn:last-child:hover {
+  background-color: #b91c1c;
+}
+
+.management-stats {
+  display: flex;
+  flex-direction: column; /* <--- Chuyển thành 1 cột */
+  gap: 20px;
+}
+
+.management-stat-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.management-stat-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #374151;
+}
+
+.management-stat-card p {
+  font-size: 24px;
+  font-weight: 700;
+  color: #00b768;
+}
+
+.management-stat-card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.management-stat-card li {
+  font-size: 15px;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+body.dark .management-stat-card {
+  background-color: #374151;
+  color: #e5e7eb;
+}
+
+body.dark .management-stat-card h3 {
+  color: #e5e7eb;
+}
+
+body.dark .management-stat-card p {
+  color: #34d399;
+}
+
+body.dark .management-stat-card li {
+  color: #e5e7eb;
+}
+
+.toast-message {
+  position: fixed;
+  top: 80px;
+  right: 30px;
+  background: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  animation: fadeInOut 3s forwards;
+}
+
+@keyframes fadeInOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.statistics-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2b6cb0; /* màu xanh nhẹ */
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 16px;
+  color: #718096; /* màu xám nhẹ */
+}
+
+.table-wrapper {
+  margin-top: 30px;
+  overflow-x: auto;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-table thead {
+  background-color: #2b6cb0; /* màu xanh cùng tone với số thống kê */
+  color: #ffffff;
+}
+
+.product-table th, .product-table td {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.product-table tbody tr {
+  border-bottom: 1px solid #e2e8f0; /* line nhẹ */
+}
+
+.product-table tbody tr:nth-child(even) {
+  background-color: #f7fafc; /* row chẵn nền xám nhạt */
+}
+
+.product-table tbody tr:hover {
+  background-color: #ebf8ff; /* hover vào row thì nổi bật */
+}
+
+.management-empty-state {
+  margin-top: 50px;
+  text-align: center;
+  color: #718096;
+}
+
+.management-empty-image {
+  width: 200px;
+  margin-bottom: 20px;
 }
