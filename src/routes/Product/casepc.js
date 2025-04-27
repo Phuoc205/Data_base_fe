@@ -12,7 +12,7 @@ function CasePC(props) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:3000/products/casepc');
+        const response = await fetch('http://localhost:3000/products/casepc');// Sửa 
         const data = await response.json();
         setProducts(data);
         console.log(data);
