@@ -139,6 +139,10 @@ function Cart() {
             .catch(err => console.error('Lỗi khi fetch giỏ hàng:', err));
     };
 
+    const totalPrice = cartItems.reduce((total, item) => {
+        return item.checked ? total + item.amount * item.price : total;
+    }, 0);
+
     const handleCheckout = async () => {
         const customer_id = localStorage.getItem('customer_id');
         if (!customer_id) {
@@ -157,34 +161,51 @@ function Cart() {
         }
     
         try {
-            const response = await fetch('http://localhost:3000/cart/checkout', {
+            const orderId = 'ORD' + Date.now();
+            const orderDate = new Date().toISOString().slice(0, 10);
+            const orderStatus = 'pending';
+    
+            const invoiceId = 'INV' + Date.now();
+            const paymentCode = 'PAY' + Math.floor(100000 + Math.random() * 900000);
+            const paymentMethod = 'COD';
+            const paymentStatus = 'Chưa thanh toán';
+    
+            const orderPayload = {
+                customer_id: customer_id,
+                order_id: orderId,
+                order_date: orderDate,
+                total: totalPrice.toString(), // vì trong SQL bạn để TOTAL là VARCHAR
+                order_status: orderStatus,
+                items: selectedItems.map(item => ({
+                    product_id: item.product_id,
+                    amount: item.amount
+                })),
+                invoice: {
+                    invoice_id: invoiceId,
+                    payment_method: paymentMethod,
+                    payment_code: paymentCode,
+                    payment_status: paymentStatus
+                }
+            };
+    
+            const response = await fetch('http://localhost:3000/order/checkout', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    customer_id,
-                    items: selectedItems.map(item => ({
-                        product_id: item.product_id,
-                        amount: item.amount
-                    }))
-                })
+                body: JSON.stringify(orderPayload)
             });
     
             const data = await response.json();
             if (data.success) {
-                alert('Thanh toán thành công!');
-                fetchCart(); // cập nhật lại giỏ hàng sau thanh toán
+                alert('Thanh toán thành công! Đơn hàng đã được tạo.');
+                fetchCart();
             } else {
-                alert('Thanh toán thất bại!');
+                alert('Thanh toán thất bại: ' + data.message);
             }
         } catch (err) {
             console.error('Lỗi khi thanh toán:', err);
             alert('Có lỗi xảy ra, thử lại sau!');
         }
-    };
-
-    const totalPrice = cartItems.reduce((total, item) => {
-        return item.checked ? total + item.amount * item.price : total;
-    }, 0);
+    };    
 
     return (
         <div className='Cart'>

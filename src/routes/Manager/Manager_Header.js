@@ -66,7 +66,10 @@ function Manager_Header() {
           <button className="management-nav-btn">
             <span className="management-icon">🛒</span> Bán hàng
           </button>
-          <button className="management-nav-btn">Giao dịch</button>
+
+          <Link to="/login/management/product_list/order" className="management-nav-btn">
+            <button className="management-nav-btn">Giao dịch</button>
+          </Link>
           <button className="management-nav-btn">Sản phẩm</button>
           <button className="management-nav-btn">Kho hàng</button>
           <button className="management-nav-btn">Báo cáo</button>
