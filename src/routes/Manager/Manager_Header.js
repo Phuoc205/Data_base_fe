@@ -64,22 +64,19 @@ function Manager_Header() {
 
         <div className="management-nav-buttons">
         <Button className="management-nav-btn" link="/">
-        <span className="management-icon" link="/" >🛒</span> Bán hàng
+        <span className="management-icon">🛒</span> Bán hàng
         </Button>
-
-          <Link to="/login/management/product_list/order" className="management-nav-btn">
-          <Button className="management-nav-btn" link="/">
-        <span className="management-icon" link="/" ></span> Giao dịch
+          <Button className="management-nav-btn" link="/login/management/product_list/order">
+        <span className="management-icon" ></span> Giao dịch
         </Button>
-          </Link>
         <Button className="management-nav-btn" link="/login/management/product_list">
-        <span className="management-icon" link="/" ></span> Sản phẩm
+        <span className="management-icon"></span> Sản phẩm
         </Button>
         <Button className="management-nav-btn" link="/login/management/product_stat">
-        <span className="management-icon" link="/" ></span> Kho hàng
+        <span className="management-icon"></span> Kho hàng
         </Button>
         <Button className="management-nav-btn" link="https://finance.vietstock.vn/ket-qua-kinh-doanh">
-        <span className="management-icon" link="/" ></span> Báo cáo
+        <span className="management-icon"></span> Báo cáo
         </Button>
         </div>
 
