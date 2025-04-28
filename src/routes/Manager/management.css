@@ -768,7 +768,7 @@ body.dark .management-stat-card li {
 }
 
 .product-table td:last-child {
-  text-align: center;
+  text-align: left;
 }
 
 .management-empty-state {
