@@ -46,33 +46,15 @@ const OrdersPage = () => {
                     <table className="product-table">
                     <thead>
                         <tr>
-<<<<<<< HEAD
-                          <th>Mã đơn</th>
-                          <th>Khách hàng</th>
-                          <th>Ngày đặt</th>
-                          <th>Tổng tiền</th>
-                          <th>Trạng thái</th>
-=======
                         <th>Mã đơn</th>
                         <th>Khách hàng</th>
                         <th>Ngày đặt</th>
                         <th>Tổng tiền</th>
                         <th>Trạng thái</th>
->>>>>>> ea522faa9fa01653ce881ccd29d1582b2df73403
                         </tr>
                     </thead>
                     <tbody>
                         {orders.map((order) => (
-<<<<<<< HEAD
-                          <tr key={order.ORDER_ID}>
-                          <td>{order.ORDER_ID}</td>
-                          <td>{order.CUSTOMER_ID}</td>
-                          <td>{new Date(order.ORDER_DATE).toLocaleDateString()}</td>
-                          <td>{order.TOTAL}</td>
-                          <td>Đã giao hàng</td> {/* Trạng thái hiển thị luôn "Đã giao hàng" */}
-
-                          </tr>
-=======
                             <tr key={order.ORDER_ID} onClick={() => handleOrderClick(order)} style={{ cursor: 'pointer' }}>
                                 <td>{order.ORDER_ID}</td>
                                 <td>{order.CUSTOMER_ID}</td>
@@ -80,7 +62,6 @@ const OrdersPage = () => {
                                 <td>{order.TOTAL}</td>
                                 <td>{order.ORDER_STATUS}</td>
                             </tr>
->>>>>>> ea522faa9fa01653ce881ccd29d1582b2df73403
                         ))}
                     </tbody>
                     </table>
