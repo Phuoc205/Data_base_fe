@@ -8,12 +8,9 @@ import OrderDetailsPopup from './OrderDetailsPage.js';
 const OrdersPage = () => {
     const navigate = useNavigate();
 
-    const handleOpenAdjust = (order) => {
-        navigate(`/orders/${order.ORDER_ID}`); // Điều hướng tới trang chi tiết
-    };
     const [orders, setOrders] = useState([]);
-    const [selectedOrder, setSelectedOrder] = useState(null);  // State to store the selected order
-    const [isPopupVisible, setIsPopupVisible] = useState(false);  // State to show/hide the popup
+    const [selectedOrder, setSelectedOrder] = useState(null);
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
 
     useEffect(() => {
         const fetchOrders = async () => {
@@ -63,11 +60,6 @@ const OrdersPage = () => {
                                 <td>{order.CUSTOMER_ID}</td>
                                 <td>{new Date(order.ORDER_DATE).toLocaleDateString()}</td>
                                 <td>{order.TOTAL}</td>
-                                <td style={{ textAlign: "left" }}>
-                                    <button className="management-action-btn" onClick={() => handleOpenAdjust(order)}>
-                                        Chi tiết
-                                    </button>
-                                </td>
                                 <td>{order.ORDER_STATUS}</td>
                             </tr>
                         ))}
