@@ -43,7 +43,6 @@ const OrdersPage = () => {
                           <th>Ngày đặt</th>
                           <th>Tổng tiền</th>
                           <th>Trạng thái</th>
-                          <th>Chi tiết đơn hàng</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -53,11 +52,8 @@ const OrdersPage = () => {
                           <td>{order.CUSTOMER_ID}</td>
                           <td>{new Date(order.ORDER_DATE).toLocaleDateString()}</td>
                           <td>{order.TOTAL}</td>
-                            <td style={{ textAlign: "left" }}>
-                              <button className="management-action-btn" onClick={() => handleOpenAdjust(order)}>
-                                Chi tiết
-                              </button>
-                            </td>
+                          <td>Đã giao hàng</td> {/* Trạng thái hiển thị luôn "Đã giao hàng" */}
+
                           </tr>
                         ))}
                       </tbody>
