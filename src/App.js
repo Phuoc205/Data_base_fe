@@ -23,7 +23,7 @@ import Unit from './routes/Manager/Unit.js'
 import ProductList from './routes/Manager/ProductList.js'
 import ProductStat from './routes/Manager/ProductStat.js'
 import OrdersPage from './routes/Manager/OrdersPage.js'
-import OrderDetailsPage from './routes/Manager/OrderDetaislPage.js'
+import OrderDetailsPage from './routes/Manager/OrderDetailsPage.js'
 
 function App() {
   return(
@@ -50,8 +50,9 @@ function App() {
         <Route path="/login/management/units" element={<Unit />} />
         <Route path="/login/management/product_list" element={<ProductList />} />
         <Route path="/login/management/product_stat" element={<ProductStat />} />
+
         <Route path="/login/management/product_list/order" element={<OrdersPage />} />
-        <Route path="/login/management/product_list/orderdetails" element={<OrderDetailsPage />} />
+        <Route path="/login/management/product_list/orderdetails/:orderId" element={<OrderDetailsPage />} />
       </Routes>
     </BrowserRouter>
   )
