@@ -5,7 +5,7 @@ function ProductCard(props) {
 
     const handleBuy = async () => {
         const customer_id = localStorage.getItem('customer_id');
-        const product_id = props.product_id; // truyền product_id từ props
+        const product_id = props.product_id;
         const amount = 1;
 
         if (!customer_id) {
