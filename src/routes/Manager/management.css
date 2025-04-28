@@ -768,7 +768,7 @@ body.dark .management-stat-card li {
 }
 
 .product-table td:last-child {
-  text-align: center;
+  text-align: left;
 }
 
 .management-empty-state {
@@ -781,27 +781,62 @@ body.dark .management-stat-card li {
   width: 200px;
   margin-bottom: 20px;
 }
-
+/* Modal overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5); /* Tăng độ mờ cho nền */
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 1000; /* Tăng z-index để đảm bảo modal ở trên cùng */
+  animation: fadeIn 0.3s ease-in-out; /* Thêm hiệu ứng xuất hiện */
 }
 
+/* Modal content */
 .modal-content {
   background: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  width: 400px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  padding: 24px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 450px; /* Tăng kích thước modal */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Bóng đổ nhẹ nhàng hơn */
+  text-align: left; /* Căn trái để dễ đọc */
+  animation: slideIn 0.3s ease-in-out; /* Hiệu ứng trượt vào */
+}
+/* Modal title */
+.modal-content h3 {
+  margin: 0 0 20px;
+  font-size: 1.5rem;
+  color: #1f2937; /* Màu chữ đậm và hiện đại */
+  text-align: center; /* Căn giữa tiêu đề */
+}
+
+/* Labels and inputs */
+.modal-content label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  color: #374151; /* Màu chữ nhạt hơn */
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #d1d5db; /* Viền nhạt */
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease; /* Hiệu ứng khi focus */
+}
+
+.modal-content input:focus {
+  outline: none;
+  border-color: #3b82f6; /* Viền xanh khi focus */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); /* Hiệu ứng bóng nhẹ */
 }
 
 .import-quantity-input {
@@ -810,34 +845,83 @@ body.dark .management-stat-card li {
   margin: 10px 0;
 }
 
+/* Modal buttons */
 .modal-buttons {
   display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
+  flex-wrap: wrap; /* Cho phép nút xuống dòng nếu cần */
+  gap: 12px; /* Khoảng cách đều giữa các nút */
+  justify-content: center; /* Căn giữa các nút */
+  margin-top: 24px;
 }
 
+/* Confirm button */
 .modal-confirm-btn {
-  background-color: #00b768;
-  padding: 8px 16px;
+  background-color: #10b981; /* Màu xanh lá cây tươi sáng hơn */
+  padding: 10px 20px;
   border: none;
-  border-radius: 6px;
-  color: #fff;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 500;
   cursor: pointer;
-}
-
-.modal-cancel-btn {
-  background-color: #ef4444;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  color: #fff;
-  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease; /* Hiệu ứng mượt */
 }
 
 .modal-confirm-btn:hover {
-  background-color: #028a54;
+  background-color: #059669; /* Màu tối hơn khi hover */
+  transform: translateY(-1px); /* Nâng nhẹ nút */
+}
+
+/* Delete button */
+.modal-delete-btn {
+  background-color: #ef4444;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.modal-delete-btn:hover {
+  background-color: #dc2626; /* Màu đỏ đậm hơn */
+  transform: translateY(-1px);
+}
+
+/* Cancel button */
+.modal-cancel-btn {
+  background-color: #6b7280; /* Màu xám trung tính */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .modal-cancel-btn:hover {
-  background-color: #c53030;
+  background-color: #4b5563; /* Màu xám đậm hơn */
+  transform: translateY(-1px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
