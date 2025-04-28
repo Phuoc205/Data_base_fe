@@ -40,34 +40,51 @@ const OrdersPage = () => {
 
     return (
         <div>
-            <h2>Danh sách đơn hàng</h2>
-            <table>
-                <thead>
-                    <tr>
+            <Manager_Header />
+            <Manager_Sidebar />
+            <div className="management-main-content">
+                <h2>Danh sách đơn hàng</h2>
+                {orders.length > 0 ? (
+                <div className="table-wrapper">
+                    <table className="product-table">
+                    <thead>
+                        <tr>
                         <th>Mã đơn</th>
                         <th>Khách hàng</th>
                         <th>Ngày đặt</th>
                         <th>Tổng tiền</th>
                         <th>Trạng thái</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {orders.map(order => (
-                        <tr key={order.ORDER_ID} onClick={() => handleOrderClick(order)} style={{ cursor: 'pointer' }}>
-                            <td>{order.ORDER_ID}</td>
-                            <td>{order.CUSTOMER_ID}</td>
-                            <td>{new Date(order.ORDER_DATE).toLocaleDateString()}</td>
-                            <td>{order.TOTAL}</td>
-                            <td>{order.ORDER_STATUS}</td>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {orders.map((order) => (
+                            <tr key={order.ORDER_ID} onClick={() => handleOrderClick(order)} style={{ cursor: 'pointer' }}>
+                                <td>{order.ORDER_ID}</td>
+                                <td>{order.CUSTOMER_ID}</td>
+                                <td>{new Date(order.ORDER_DATE).toLocaleDateString()}</td>
+                                <td>{order.TOTAL}</td>
+                                <td style={{ textAlign: "left" }}>
+                                    <button className="management-action-btn" onClick={() => handleOpenAdjust(order)}>
+                                        Chi tiết
+                                    </button>
+                                </td>
+                                <td>{order.ORDER_STATUS}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                    </table>
 
-            {/* Show popup when isPopupVisible is true */}
-            {isPopupVisible && selectedOrder && (
-                <OrderDetailsPopup order={selectedOrder} onClose={closePopup} />
-            )}
+                    {isPopupVisible && selectedOrder && (
+                        <OrderDetailsPopup order={selectedOrder} onClose={closePopup} />
+                    )}
+                </div>
+                ) : (
+                <div className="management-empty-state">
+                    <img src={empty} alt="Empty State" className="management-empty-image" />
+                    <p>Hiện tại hệ thống chưa có sản phẩm nào. Bạn cần thêm sản phẩm mới để quản lý một cách hiệu quả!</p>
+                </div>
+                )}
+            </div>
         </div>
     );
 };
