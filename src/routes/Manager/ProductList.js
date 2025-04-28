@@ -4,17 +4,27 @@ import Manager_Sidebar from './Manager_Sidebar.js';
 import empty from '../../../public/img/empty_state.png';
 
 function ProductList() {
-  
   const [products, setProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [importQuantity, setImportQuantity] = useState(1);
+  const [editedName, setEditedName] = useState('');
+  const [editedPrice, setEditedPrice] = useState('');
+
+  const categoryMap = {
+    0: 'Laptop', 1: 'Chuột', 2: 'Bàn phím', 3: 'Màn hình',
+    4: 'Tai nghe', 5: 'Case', 6: 'Quạt laptop', 7: 'Tay cầm', 8: 'Bàn ghế'
+  };
+
+  useEffect(() => {
+    fetchProductList();
+  }, []);
 
   const fetchProductList = async () => {
     try {
       const response = await fetch('http://localhost:3000/products-list');
       const data = await response.json();
-
       if (data.success) {
-        const normalizedProducts = normalizeProductsManagement(data.products);
-        setProducts(normalizedProducts); // dùng dữ liệu đã chuẩn hóa
+        setProducts(normalizeProductsManagement(data.products));
       } else {
         alert('Không lấy được danh sách sản phẩm!');
       }
@@ -22,18 +32,6 @@ function ProductList() {
       console.error('Lỗi lấy sản phẩm:', err);
       alert('Có lỗi xảy ra khi tải sản phẩm!');
     }
-  };
-
-  const categoryMap = {
-    0: 'Laptop',
-    1: 'Chuột',
-    2: 'Bàn phím',
-    3: 'Màn hình',
-    4: 'Tai nghe',
-    5: 'Case',
-    6: 'Quạt laptop',
-    7: 'Tay cầm',
-    8: 'Bàn ghế'
   };
 
   function normalizeProductsManagement(items) {
@@ -46,46 +44,24 @@ function ProductList() {
     }));
   }
 
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [importQuantity, setImportQuantity] = useState(1);
-
-
-  const totalProducts = products.length;
-  const totalStock = products.reduce((sum, product) => sum + Number(product.stock), 0);
-  const outOfStockProducts = products.filter((product) => Number(product.stock) === 0).length;
-  const totalInventoryValue = products.reduce(
-    (sum, product) => sum + Number(product.price) * Number(product.stock),
-    0
-  );
-
-
-  useEffect(() => {
-    fetchProductList();
-  }, []);
-
-  const handleOpenImport = (product) => {
+  const handleOpenAdjust = (product) => {
     setSelectedProduct(product);
     setImportQuantity(1);
+    setEditedName(product.name);
+    setEditedPrice(product.price);
   };
 
   const handleConfirmImport = async () => {
     try {
       const response = await fetch('http://localhost:3000/import-product', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          productId: selectedProduct.id,
-          quantity: importQuantity
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId: selectedProduct.id, quantity: importQuantity })
       });
-      
       const data = await response.json();
-  
       if (data.success) {
-        setProducts(prevProducts =>
-          prevProducts.map(product =>
+        setProducts(prev =>
+          prev.map(product =>
             product.id === selectedProduct.id
               ? { ...product, stock: Number(product.stock) + importQuantity }
               : product
@@ -101,6 +77,55 @@ function ProductList() {
     }
   };
 
+  const handleUpdateInfo = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/update-product', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          productId: selectedProduct.id,
+          name: editedName,
+          price: editedPrice
+        })
+      });
+      const data = await response.json();
+      if (data.success) {
+        setProducts(prev =>
+          prev.map(product =>
+            product.id === selectedProduct.id
+              ? { ...product, name: editedName, price: editedPrice }
+              : product
+          )
+        );
+        setSelectedProduct(null);
+      } else {
+        alert('Cập nhật thông tin thất bại!');
+      }
+    } catch (err) {
+      console.error('Lỗi khi cập nhật sản phẩm:', err);
+      alert('Đã có lỗi xảy ra khi gửi yêu cầu cập nhật!');
+    }
+  };
+
+  const handleDeleteProduct = async () => {
+    if (!window.confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?')) return;
+    try {
+      const response = await fetch(`http://localhost:3000/delete-product/${selectedProduct.id}`, {
+        method: 'DELETE'
+      });
+      const data = await response.json();
+      if (data.success) {
+        setProducts(prev => prev.filter(product => product.id !== selectedProduct.id));
+        setSelectedProduct(null);
+      } else {
+        alert('Xóa sản phẩm thất bại!');
+      }
+    } catch (err) {
+      console.error('Lỗi khi xóa sản phẩm:', err);
+      alert('Đã có lỗi xảy ra khi gửi yêu cầu xóa!');
+    }
+  };
+
   return (
     <div>
       <Manager_Header />
@@ -110,25 +135,28 @@ function ProductList() {
 
         {/* Thống kê */}
         <div className="statistics-container">
+          {/* Thống kê chi tiết */}
           <div className="stat-card">
-            <div className="stat-number">{totalProducts}</div>
+            <div className="stat-number">{products.length}</div>
             <div className="stat-label">Tổng sản phẩm</div>
           </div>
           <div className="stat-card">
-            <div className="stat-number">{totalStock}</div>
+            <div className="stat-number">{products.reduce((sum, p) => sum + Number(p.stock), 0)}</div>
             <div className="stat-label">Tồn kho tổng cộng</div>
           </div>
           <div className="stat-card">
-            <div className="stat-number">{outOfStockProducts}</div>
+            <div className="stat-number">{products.filter(p => Number(p.stock) === 0).length}</div>
             <div className="stat-label">Sản phẩm hết hàng</div>
           </div>
           <div className="stat-card">
-            <div className="stat-number">{totalInventoryValue.toLocaleString()} VNĐ</div>
+            <div className="stat-number">
+              {products.reduce((sum, p) => sum + Number(p.price) * Number(p.stock), 0).toLocaleString()} VNĐ
+            </div>
             <div className="stat-label">Giá trị tồn kho</div>
           </div>
         </div>
 
-        {/* Bảng danh sách sản phẩm */}
+        {/* Bảng sản phẩm */}
         {products.length > 0 ? (
           <div className="table-wrapper">
             <table className="product-table">
@@ -139,7 +167,7 @@ function ProductList() {
                   <th>Danh mục</th>
                   <th>Giá</th>
                   <th>Tồn kho</th>
-                  <th>Nhập hàng</th>
+                  <th>Điều chỉnh</th>
                 </tr>
               </thead>
               <tbody>
@@ -151,8 +179,9 @@ function ProductList() {
                     <td>{Number(product.price).toLocaleString()} VNĐ</td>
                     <td>{product.stock}</td>
                     <td style={{ textAlign: "left" }}>
-                    <button   className="management-action-btn"   onClick={() => handleOpenImport(product)} > Nhập 
-                    </button>
+                      <button className="management-action-btn" onClick={() => handleOpenAdjust(product)}>
+                        Điều chỉnh
+                      </button>
                     </td>
                   </tr>
                 ))}
@@ -161,54 +190,62 @@ function ProductList() {
           </div>
         ) : (
           <div className="management-empty-state">
-            <img
-              src={empty}
-              alt="Empty State"
-              className="management-empty-image"
-            />
-            <p>
-              Hiện tại hệ thống chưa có sản phẩm nào. Bạn cần thêm sản phẩm mới để quản lý một cách hiệu quả!
-            </p>
+            <img src={empty} alt="Empty State" className="management-empty-image" />
+            <p>Hiện tại hệ thống chưa có sản phẩm nào. Bạn cần thêm sản phẩm mới để quản lý một cách hiệu quả!</p>
           </div>
         )}
       </div>
+
+      {/* Popup modal */}
       {selectedProduct && (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <h3>Nhập thêm sản phẩm</h3>
-        <p><strong>Tên:</strong> {selectedProduct.name}</p>
-        <p><strong>Giá:</strong> {Number(selectedProduct.price).toLocaleString()} VNĐ</p>
-        
-        <label>
-          Số lượng cần nhập:
-          <input
-            type="number"
-            min="1"
-            value={importQuantity}
-            onChange={(e) => setImportQuantity(Number(e.target.value))}
-            className="import-quantity-input"
-          />
-        </label>
-        
-        <div className="modal-buttons">
-          <button
-            onClick={handleConfirmImport}
-            className="modal-confirm-btn"
-          >
-            Xác nhận
-          </button>
-          <button
-            onClick={() => setSelectedProduct(null)}
-            className="modal-cancel-btn"
-          >
-            Huỷ
-          </button>
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h3>Điều chỉnh sản phẩm</h3>
+            <label>
+              Tên sản phẩm:
+              <input
+                type="text"
+                value={editedName}
+                onChange={(e) => setEditedName(e.target.value)}
+              />
+            </label>
+            <label>
+              Giá sản phẩm:
+              <input
+                type="number"
+                min="0"
+                value={editedPrice}
+                onChange={(e) => setEditedPrice(Number(e.target.value))}
+              />
+            </label>
+            <label>
+              Thêm số lượng:
+              <input
+                type="number"
+                min="1"
+                value={importQuantity}
+                onChange={(e) => setImportQuantity(Number(e.target.value))}
+              />
+            </label>
+
+            <div className="modal-buttons">
+              <button className="modal-confirm-btn" onClick={handleConfirmImport}>
+                Thêm sản phẩm
+              </button>
+              <button className="modal-confirm-btn" onClick={handleUpdateInfo}>
+                Thay đổi thông tin
+              </button>
+              <button className="modal-delete-btn" onClick={handleDeleteProduct}>
+                Xóa sản phẩm
+              </button>
+              <button className="modal-cancel-btn" onClick={() => setSelectedProduct(null)}>
+                Huỷ
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
-  )}
-    </div>
-    
   );
 }
 

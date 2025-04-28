@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-const OrderDetailsPage = () => {
+const OrderDetailPage = () => {
   const { orderId } = useParams();  // Nhận tham số từ URL
   const [orderItems, setOrderItems] = useState([]);
 
@@ -42,4 +42,4 @@ const OrderDetailsPage = () => {
   );
 };
 
-export default OrderDetailsPage;
+export default OrderDetailPage;
