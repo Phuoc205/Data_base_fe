@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import Manager_Header from './Manager_Header.js';
+import Manager_Sidebar from './Manager_Sidebar.js';
+import empty from '../../../public/img/empty_state.png';
+import { useNavigate } from 'react-router-dom';
 import OrderDetailsPopup from './OrderDetailsPage.js';
 
 const OrdersPage = () => {
+    const navigate = useNavigate();
+
+    const handleOpenAdjust = (order) => {
+        navigate(`/orders/${order.ORDER_ID}`); // Điều hướng tới trang chi tiết
+    };
     const [orders, setOrders] = useState([]);
     const [selectedOrder, setSelectedOrder] = useState(null);  // State to store the selected order
     const [isPopupVisible, setIsPopupVisible] = useState(false);  // State to show/hide the popup
